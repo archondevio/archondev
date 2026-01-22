@@ -55,12 +55,13 @@ Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files i
 
 | IDE | Download |
 |-----|----------|
-| Cursor | [cursor-package.zip](https://github.com/archondevio/archondev/releases/latest/download/cursor-package.zip) |
-| Claude Code / Amp | [claude-amp-package.zip](https://github.com/archondevio/archondev/releases/latest/download/claude-amp-package.zip) |
-| Windsurf / Codeium | [windsurf-package.zip](https://github.com/archondevio/archondev/releases/latest/download/windsurf-package.zip) |
-| VS Code + Copilot | [vscode-copilot-package.zip](https://github.com/archondevio/archondev/releases/latest/download/vscode-copilot-package.zip) |
-| OpenAI Codex | [codex-package.zip](https://github.com/archondevio/archondev/releases/latest/download/codex-package.zip) |
-| Generic (any AI) | [generic-package.zip](https://github.com/archondevio/archondev/releases/latest/download/generic-package.zip) |
+| Cursor | [cursor-package.zip](https://github.com/archondevio/archondev/releases/latest/download/cursor-package.zip) (~20KB) |
+| Claude Code / Amp | [claude-amp-package.zip](https://github.com/archondevio/archondev/releases/latest/download/claude-amp-package.zip) (~20KB) |
+| Google Gemini | [gemini-package.zip](https://github.com/archondevio/archondev/releases/latest/download/gemini-package.zip) (~20KB) |
+| Windsurf / Codeium | [windsurf-package.zip](https://github.com/archondevio/archondev/releases/latest/download/windsurf-package.zip) (~20KB) |
+| VS Code + Copilot | [vscode-copilot-package.zip](https://github.com/archondevio/archondev/releases/latest/download/vscode-copilot-package.zip) (~20KB) |
+| OpenAI Codex | [codex-package.zip](https://github.com/archondevio/archondev/releases/latest/download/codex-package.zip) (~20KB) |
+| Generic (any AI) | [generic-package.zip](https://github.com/archondevio/archondev/releases/latest/download/generic-package.zip) (~20KB) |
 
 **What's in the package:**
 
@@ -71,8 +72,9 @@ Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files i
 | `DEPENDENCIES.md` | Regression prevention — tracks what breaks when you change files |
 | `progress.txt` | Learning log — persists knowledge across sessions |
 | `.archon/config.yaml` | Configuration file |
+| `archondev-scenarios/` | Smart onboarding for new/existing/continuing projects |
 | `examples/` | Sample workflows and patterns |
-| IDE-specific rules | `.cursorrules`, `CLAUDE.md`, etc. |
+| IDE-specific rules | `.cursorrules`, `CLAUDE.md`, `GEMINI.md`, etc. |
 
 **Usage:**
 1. Download the package for your IDE
