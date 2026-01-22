@@ -81,6 +81,14 @@ Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files i
 
 ---
 
+## VS Code Extension
+
+Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for lightbulb menu with auto-fixes.
+
+[Download archondev-0.2.0.vsix](https://archondev.io/downloads/archondev-0.2.0.vsix)
+
+---
+
 ## Features
 
 - **📐 Architectural Governance** — Define components, boundaries, and invariants your AI must respect
@@ -89,6 +97,7 @@ Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files i
 - **🔍 Code Review Mode** — AI reviews code without modifying it
 - **📦 Local Database** — Optional SQLite for tracking atoms and learnings
 - **🛡️ Quality Gates** — Every change must pass before commit
+- **💡 VS Code Extension** — Real-time diagnostics with quick-fix suggestions
 
 ---
 
