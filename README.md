@@ -69,7 +69,7 @@ Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files i
 | File | Purpose |
 |------|---------|
 | `ARCHITECTURE.md` | Governance constitution — components, invariants, protected paths, accessibility config |
-| `AGENTS.md` | AI instructions — code review, task extraction, accessibility check, memory management |
+| `AGENTS.md` | AI instructions — code review, task extraction, accessibility, SEO, GEO, memory management |
 | `DEPENDENCIES.md` | Regression prevention — tracks what breaks when you change files |
 | `progress.txt` | Learning log — persists knowledge across sessions |
 | `.archon/config.yaml` | Configuration file |
@@ -99,6 +99,18 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **🔗 Dependency Tracking** — Know what breaks before you change it (`DEPENDENCIES.md`)
 - **🧠 Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **🛡️ Quality Gates** — Every change must pass before commit
+
+### New in v1.8.0
+- **🔍 SEO Optimization** — Automated meta tags, Open Graph, Twitter Cards
+  - AI scans, identifies gaps, generates missing tags
+  - User approves before changes are applied
+  - Trigger: `seo check`, `seo fix`, `add open graph`
+- **🤖 GEO for AI Search** — Optimize for ChatGPT, Perplexity, Claude citations
+  - AI generates 3 candidate 7-word brand phrases
+  - AI generates 3 candidate 50-word descriptions
+  - User selects preferred identity
+  - JSON-LD schemas for AI comprehension
+  - Trigger: `geo identity`, `geo schema`
 
 ### New in v1.7.0
 - **♿ Pre-Deploy Accessibility Check** — WCAG 2.2 AA compliance before going live
@@ -132,6 +144,10 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 | `archon a11y fix` | Auto-fix accessibility issues |
 | `archon deps list` | View dependency rules |
 | `archon watch` | Live TUI dashboard |
+| `archon seo check` | Run SEO meta tag audit |
+| `archon seo fix` | Apply recommended SEO fixes |
+| `archon geo identity` | Generate brand identity phrases |
+| `archon geo schema` | Generate JSON-LD schemas |
 
 [Full CLI Reference →](https://archondev.io/docs#cli-reference)
 
