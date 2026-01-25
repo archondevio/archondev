@@ -5,8 +5,8 @@
 <h1 align="center">ArchonDev</h1>
 
 <p align="center">
-  <strong>AI Development Governance</strong><br>
-  Stop babysitting your AI. Start shipping.
+  <strong>Govern AI Code Your Way</strong><br>
+  CLI for total control. Drop-in for your existing tools.
 </p>
 
 <p align="center">
@@ -31,9 +31,9 @@ ArchonDev is an AI-powered development governance system that prevents your AI c
 
 ## Two Ways to Use ArchonDev
 
-### 🚀 Full CLI (Recommended)
+### 🚀 Full CLI — Replace Your Tools
 
-The complete AI development system with adversarial planning, quality gates, and learning persistence.
+AI terminal that governs itself. Total control with architecture enforcement, dependency tracking, and security sentinels.
 
 ```bash
 npm install -g archondev
@@ -48,9 +48,9 @@ archon
 
 ---
 
-### 📦 Lite Package (Keep Your Tools)
+### 📦 Lite Package — Enhance Your Tools
 
-Already using Cursor, Claude Code, Windsurf, or Copilot? Drop governance files into your project. Your AI follows the rules.
+Governance files for any IDE or AI tool. Drop into Cursor, Claude Code, Windsurf, or any AI coding assistant.
 
 **Download for your IDE:**
 
@@ -96,9 +96,19 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 
 ### Core Governance
 - **📐 Architectural Governance** — Define components, boundaries, and invariants your AI must respect
+- **⚡ Quality Level / Posture** — Right-sized architecture (prototype/production/enterprise)
 - **🔗 Dependency Tracking** — Know what breaks before you change it (`DEPENDENCIES.md`)
 - **🧠 Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **🛡️ Quality Gates** — Every change must pass before commit
+
+### New in v1.9.0
+- **⚡ Quality Level / Posture** — Tell AI how rigorous to be
+  - `prototype`: Fast iteration, minimal governance, skip complex patterns
+  - `production`: Secure defaults, basic monitoring, modular design (default)
+  - `enterprise`: Full governance with audit logging, RBAC, SLOs, compliance
+  - Applies to architecture, code generation, AND code review
+  - Prevents over-engineering for simple projects
+  - Trigger: Set `qualityLevel.posture` in ARCHITECTURE.md
 
 ### New in v1.8.0
 - **🔍 SEO Optimization** — Automated meta tags, Open Graph, Twitter Cards
