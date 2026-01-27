@@ -31,7 +31,7 @@ ArchonDev is an AI-powered development governance system that prevents your AI c
 
 ## Two Ways to Use ArchonDev
 
-### 🚀 Full CLI — Replace Your Tools
+### Full CLI — Replace Your Tools
 
 AI terminal that governs itself. Total control with architecture enforcement, dependency tracking, and security sentinels.
 
@@ -44,11 +44,11 @@ Then run:
 archon
 ```
 
-[📖 Full Documentation →](https://archondev.io/docs)
+[Full Documentation →](https://archondev.io/docs)
 
 ---
 
-### 📦 Lite Package — Enhance Your Tools
+### Lite Package — Enhance Your Tools
 
 Governance files for any IDE or AI tool. Drop into Cursor, Claude Code, Windsurf, or any AI coding assistant.
 
@@ -95,14 +95,48 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 ## Features
 
 ### Core Governance
-- **📐 Architectural Governance** — Define components, boundaries, and invariants your AI must respect
-- **⚡ Quality Level / Posture** — Right-sized architecture (prototype/production/enterprise)
-- **🔗 Dependency Tracking** — Know what breaks before you change it (`DEPENDENCIES.md`)
-- **🧠 Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
-- **🛡️ Quality Gates** — Every change must pass before commit
+- **Architectural Governance** — Define components, boundaries, and invariants your AI must respect
+- **Quality Level / Posture** — Right-sized architecture (prototype/production/enterprise)
+- **Dependency Tracking** — Know what breaks before you change it (`DEPENDENCIES.md`)
+- **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
+- **Quality Gates** — Every change must pass before commit
+
+### New in v2.1.0
+- **GitHub Integration** — Connect GitHub for cloud execution with automatic PR creation
+  - Connect: `archon github connect`
+  - Status: `archon github status`
+  - Cloud agents clone repos, make changes, and submit PRs automatically
+- **Cloud Semantic Indexing** — Semantic search stored in Supabase pgvector
+  - Setup: `archon index init --cloud`
+  - Index: `archon index update --cloud`
+  - Search: `archon index search "query" --cloud`
+  - Cost: ~$0.01-0.30/month storage, queries are free
+- **Webhook-Triggered Worker** — Cloud worker with instant job pickup and auto-stop for cost savings
+
+### New in v2.0.0
+- **Cloud Agents** — Run agents in the cloud, close your laptop, check progress anywhere
+  - Execute: `archon execute ATOM-001 --cloud`
+  - Watch: `archon execute ATOM-001 --cloud --watch`
+  - Status: `archon cloud status`
+  - Requires: `archon github connect` first
+- **Cross-Device Sessions** — Save session, continue on another machine
+  - Save: `archon session save`
+  - Resume: `archon session resume [id]`
+- **Parallel Agents** — Run multiple agents simultaneously with git worktrees
+  - Execute: `archon execute --parallel ATOM-001 ATOM-002`
+  - Manage: `archon parallel status`, `archon parallel merge`
+- **One-Click Deploy** — Auto-detect platform and deploy
+  - Deploy: `archon deploy`
+  - Preview: `archon deploy --preview`
+- **Semantic Indexing** — AI-powered codebase search (local with Ollama or cloud with pgvector)
+  - Local: `archon index init --local`
+  - Cloud: `archon index init --cloud`
+  - Search: `archon index search "query"`
+- **Smart Orchestration** — System suggests optimal execution mode based on project size
+  - Configure: `archon preferences execution-set parallel.mode always`
 
 ### New in v1.9.0
-- **⚡ Quality Level / Posture** — Tell AI how rigorous to be
+- **Quality Level / Posture** — Tell AI how rigorous to be
   - `prototype`: Fast iteration, minimal governance, skip complex patterns
   - `production`: Secure defaults, basic monitoring, modular design (default)
   - `enterprise`: Full governance with audit logging, RBAC, SLOs, compliance
@@ -111,11 +145,11 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
   - Trigger: Set `qualityLevel.posture` in ARCHITECTURE.md
 
 ### New in v1.8.0
-- **🔍 SEO Optimization** — Automated meta tags, Open Graph, Twitter Cards
+- **SEO Optimization** — Automated meta tags, Open Graph, Twitter Cards
   - AI scans, identifies gaps, generates missing tags
   - User approves before changes are applied
   - Trigger: `seo check`, `seo fix`, `add open graph`
-- **🤖 GEO for AI Search** — Optimize for ChatGPT, Perplexity, Claude citations
+- **GEO for AI Search** — Optimize for ChatGPT, Perplexity, Claude citations
   - AI generates 3 candidate 7-word brand phrases
   - AI generates 3 candidate 50-word descriptions
   - User selects preferred identity
@@ -123,22 +157,22 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
   - Trigger: `geo identity`, `geo schema`
 
 ### New in v1.7.0
-- **♿ Pre-Deploy Accessibility Check** — WCAG 2.2 AA compliance before going live
+- **Pre-Deploy Accessibility Check** — WCAG 2.2 AA compliance before going live
   - Legal liability warnings (ADA, EAA, Section 508)
   - Auto-fix for common issues (contrast, alt text, focus)
   - WCAG 2.2 AA badge for compliant sites
   - CLI: `archon a11y check`, `archon a11y fix`, `archon a11y badge`
 
 ### New in v1.6.x
-- **📋 Task Extraction Protocol** — AI confirms all items in multi-item requests before starting
+- **Task Extraction Protocol** — AI confirms all items in multi-item requests before starting
   - Prevents lost requirements (AI often forgets items 3+ in a list)
   - Trigger phrases: `plan these tasks`, `task status`, `what's on my list`
-- **🚀 Smart Onboarding** — Detects new project, existing project, or continuing session
-- **🔍 Code Review Mode** — AI reviews code without modifying it
+- **Smart Onboarding** — Detects new project, existing project, or continuing session
+- **Code Review Mode** — AI reviews code without modifying it
 
 ### Tools & Extensions
-- **📦 Local Database** — Optional SQLite for tracking atoms and learnings
-- **💡 VS Code Extension** — Real-time diagnostics with quick-fix suggestions
+- **Local Database** — Optional SQLite for tracking atoms and learnings
+- **VS Code Extension** — Real-time diagnostics with quick-fix suggestions
 
 ---
 
@@ -149,15 +183,24 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 | `archon` | Interactive mode |
 | `archon plan <description>` | Create governed work item |
 | `archon execute <atom-id>` | Execute with quality gates |
+| `archon execute --cloud` | Execute in cloud (creates PR) |
+| `archon execute --parallel` | Execute multiple atoms in parallel |
+| `archon github connect` | Link GitHub account for cloud execution |
+| `archon github status` | Check GitHub connection status |
+| `archon cloud status` | List cloud executions |
+| `archon session save` | Save session for cross-device |
+| `archon session resume` | Resume saved session |
+| `archon parallel status` | Show parallel execution status |
+| `archon deploy` | One-click deploy (auto-detect platform) |
+| `archon index init [--local\|--cloud]` | Initialize semantic index |
+| `archon index update [--cloud]` | Index changed files |
+| `archon index search <query> [--cloud]` | Semantic codebase search |
 | `archon review init` | Initialize code review |
 | `archon a11y check` | Run WCAG 2.2 AA audit |
-| `archon a11y fix` | Auto-fix accessibility issues |
 | `archon deps list` | View dependency rules |
 | `archon watch` | Live TUI dashboard |
 | `archon seo check` | Run SEO meta tag audit |
-| `archon seo fix` | Apply recommended SEO fixes |
 | `archon geo identity` | Generate brand identity phrases |
-| `archon geo schema` | Generate JSON-LD schemas |
 
 [Full CLI Reference →](https://archondev.io/docs#cli-reference)
 
