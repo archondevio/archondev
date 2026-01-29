@@ -101,6 +101,24 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **Quality Gates** — Every change must pass before commit
 
+### New in v2.3.0
+- **5-Phase Interview System** — Conversational interview to define your project
+  - Phases: Discovery → Features → Technical → Branding → Review
+  - CLI: `archon interview`, `archon interview show`, `archon interview validate`
+- **Project Constitution** — Immutable specification generated from interview
+  - Formal contract between you and AI for what gets built
+  - Complexity tier calculation (SIMPLE/MODERATE/COMPLEX/ENTERPRISE)
+  - Build hours and cost estimation
+  - SHA-256 hash for integrity verification
+- **Challenge Mode** — AI pushback on scope creep during review
+  - Detects too many features, high complexity, vague requirements
+  - Suggests features to defer to post-MVP
+  - Scope score (0-100) to identify risk
+- **Atom Generator** — Transform Constitution into prd.json
+  - CLI: `archon generate`, `archon generate --dry-run`
+  - Auto-generates setup, database, auth atoms
+  - Splits complex features into backend/frontend atoms
+
 ### New in v2.1.0
 - **GitHub Integration** — Connect GitHub for cloud execution with automatic PR creation
   - Connect: `archon github connect`
@@ -181,6 +199,8 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 | Command | Description |
 |---------|-------------|
 | `archon` | Interactive mode |
+| `archon interview` | 5-phase project interview |
+| `archon generate` | Generate prd.json from Constitution |
 | `archon plan <description>` | Create governed work item |
 | `archon execute <atom-id>` | Execute with quality gates |
 | `archon execute --cloud` | Execute in cloud (creates PR) |
