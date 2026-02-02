@@ -101,6 +101,32 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **Quality Gates** — Every change must pass before commit
 
+### New in v2.5.0
+- **Streamlined Onboarding** — Complete rewrite of first-run experience
+  - Login required first — Creates user account before any other steps
+  - Tier selection upfront — Choose FREE/BYOK/Credits before AI calls
+  - Fixed double-init bug that confused new users
+  - Clear, sequential output — no more jumbled messages
+- **AI-Powered Conversational Interview** — Natural conversation replaces rigid menus
+  - AI asks follow-up questions based on your answers
+  - Infers project details from natural language
+  - Uses Haiku model for cost-efficient onboarding
+  - Falls back to simple prompts when no API key available
+  - Say "skip" or "just start" anytime to use defaults
+- **Update Notifications** — Automatic version checking on startup
+  - Background check against npm registry (non-blocking)
+  - Shows banner when new version available
+  - Displays update command: `npm update -g archondev`
+
+### New in v2.4.0
+- **Dependency Graph Scheduler** — Analyze atom dependencies for parallel execution
+  - Wave-based scheduling using topological sort
+  - CLI: `archon parallel schedule`, `archon parallel run-waves`
+- **Eject Command** — Clean removal of ArchonDev from any project
+  - CLI: `archon eject --dry-run`
+- **Atomic Rollback** — Revert individual atom commits via git
+  - CLI: `archon revert <atom-id>`, `archon history`
+
 ### New in v2.3.0
 - **5-Phase Interview System** — Conversational interview to define your project
   - Phases: Discovery → Features → Technical → Branding → Review
