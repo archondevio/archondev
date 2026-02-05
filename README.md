@@ -101,6 +101,17 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **Quality Gates** — Every change must pass before commit
 
+### New in v2.6.0
+- **Smart Model Routing** — Automatic cost optimization for AI operations
+  - Three model tiers: PLANNING ($$$), REASONING ($$), EXECUTION ($)
+  - Operations automatically routed to optimal tier
+  - PLANNING: plan, init, design, architect_debate → Claude Opus, GPT-5.2
+  - REASONING: review, validate, analyze, seo/geo → Claude Sonnet, GPT-5
+  - EXECUTION: execute, deps, a11y, format → Claude Haiku, Gemini Flash
+  - Configure per-tier model preferences via `archon preferences`
+  - Override with `--model <model-id>` flag
+  - 80-95% cost savings on routine tasks
+
 ### New in v2.5.0
 - **Streamlined Onboarding** — Complete rewrite of first-run experience
   - Login required first — Creates user account before any other steps
