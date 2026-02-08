@@ -1,295 +1,227 @@
-<p align="center">
-  <img src="https://archondev.io/images/archon-robot.png" alt="ArchonDev" width="120" />
-</p>
+# ArchonDev
 
-<h1 align="center">ArchonDev</h1>
-
-<p align="center">
-  <strong>Govern AI Code Your Way</strong><br>
-  CLI for total control. Drop-in for your existing tools.
-</p>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/archondev"><img src="https://img.shields.io/npm/v/archondev.svg" alt="npm version"></a>
-  <a href="https://archondev.io">Website</a> •
-  <a href="https://archondev.io/docs">Documentation</a> •
-  <a href="https://archondev.io/download">Download</a> •
-  <a href="https://archondev.io/changelog">Changelog</a>
-</p>
-
----
-
-## What is ArchonDev?
-
-ArchonDev is an AI-powered development governance system that prevents your AI coding assistant from making architectural mistakes, forgetting context, and introducing regressions.
-
-**The Problem:** AI coding assistants are powerful but unreliable. They hallucinate, ignore your architecture, forget what they learned, and break things they just fixed.
-
-**The Solution:** ArchonDev adds governance — architectural rules your AI must follow, quality gates before every change, and persistent learning across sessions.
-
----
+**AI Development Governance — Stop Babysitting Your AI Agent**
 
 ## Two Ways to Use ArchonDev
 
-### Full CLI — Replace Your Tools
-
-AI terminal that governs itself. Total control with architecture enforcement, dependency tracking, and security sentinels.
+### Option 1: Full CLI (Recommended)
+The complete AI development system. It manages your entire development process so you can focus on the big picture — not constantly correcting your AI.
 
 ```bash
-npm install -g archondev
+# macOS/Linux:
+npm install -g archondev && archon
+
+# Windows PowerShell:
+npm install -g archondev; archon
 ```
 
-Then run:
-```bash
-archon
-```
-
-[Full Documentation →](https://archondev.io/docs)
-
----
-
-### Lite Package — Enhance Your Tools
-
-Governance files for any IDE or AI tool. Drop into Cursor, Claude Code, Windsurf, or any AI coding assistant.
-
-**Download for your IDE:**
-
-| IDE | Download |
-|-----|----------|
-| Cursor | [cursor-package.zip](https://github.com/archondevio/archondev/releases/latest/download/cursor-package.zip) (~20KB) |
-| Claude Code / Amp | [claude-amp-package.zip](https://github.com/archondevio/archondev/releases/latest/download/claude-amp-package.zip) (~20KB) |
-| Google Gemini | [gemini-package.zip](https://github.com/archondevio/archondev/releases/latest/download/gemini-package.zip) (~20KB) |
-| Windsurf / Codeium | [windsurf-package.zip](https://github.com/archondevio/archondev/releases/latest/download/windsurf-package.zip) (~20KB) |
-| VS Code + Copilot | [vscode-copilot-package.zip](https://github.com/archondevio/archondev/releases/latest/download/vscode-copilot-package.zip) (~20KB) |
-| OpenAI Codex | [codex-package.zip](https://github.com/archondevio/archondev/releases/latest/download/codex-package.zip) (~20KB) |
-| Generic (any AI) | [generic-package.zip](https://github.com/archondevio/archondev/releases/latest/download/generic-package.zip) (~20KB) |
-
-**What's in the package:**
-
-| File | Purpose |
-|------|---------|
-| `ARCHITECTURE.md` | Governance constitution — components, invariants, protected paths, accessibility config |
-| `AGENTS.md` | AI instructions — code review, task extraction, accessibility, SEO, GEO, memory management |
-| `DEPENDENCIES.md` | Regression prevention — tracks what breaks when you change files |
-| `progress.txt` | Learning log — persists knowledge across sessions |
-| `.archon/config.yaml` | Configuration file |
-| `archondev-scenarios/` | Smart onboarding for new/existing/continuing projects |
-| `examples/` | Sample workflows and patterns |
-| IDE-specific rules | `.cursorrules`, `CLAUDE.md`, `GEMINI.md`, etc. |
-
-**Usage:**
-1. Download the package for your IDE
-2. Unzip to your project root
-3. Tell your AI: `"read ARCHITECTURE.md"`
-
----
-
-## VS Code Extension
-
-Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for lightbulb menu with auto-fixes.
-
-[Download archondev-0.2.0.vsix](https://archondev.io/downloads/archondev-0.2.0.vsix)
-
----
-
-## Features
-
-### Core Governance
-- **Architectural Governance** — Define components, boundaries, and invariants your AI must respect
+**What you get:**
+- AI that reads and respects your architecture before writing code
 - **Quality Level / Posture** — Right-sized architecture (prototype/production/enterprise)
-- **Dependency Tracking** — Know what breaks before you change it (`DEPENDENCIES.md`)
-- **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
-- **Quality Gates** — Every change must pass before commit
+- Adversarial planning (Architect proposes, Sentinel critiques)
+- Automatic quality gates before changes are applied
+- Learning persistence — mistakes are remembered and avoided
+- **Dependency tracking** — prevent regressions with "what-breaks-what" map
+- Bug reporting with root cause analysis
+- AI-powered code review for any codebase
+- Multi-provider key support with adversarial features
 
-### New in v2.6.0
-- **Smart Model Routing** — Automatic cost optimization for AI operations
-  - Three model tiers: PLANNING ($$$), REASONING ($$), EXECUTION ($)
-  - Operations automatically routed to optimal tier
-  - PLANNING: plan, init, design, architect_debate → Claude Opus, GPT-5.2
-  - REASONING: review, validate, analyze, seo/geo → Claude Sonnet, GPT-5
-  - EXECUTION: execute, deps, a11y, format → Claude Haiku, Gemini Flash
-  - Configure per-tier model preferences via `archon preferences`
-  - Override with `--model <model-id>` flag
-  - 80-95% cost savings on routine tasks
+### Option 2: Lite Package
+Copy governance files into any project. Works with your existing AI tools: **Cursor, Claude Code, Windsurf, Amp, Copilot, Gemini**, and more.
 
-### New in v2.5.0
-- **Streamlined Onboarding** — Complete rewrite of first-run experience
-  - Login required first — Creates user account before any other steps
-  - Tier selection upfront — Choose FREE/BYOK/Credits before AI calls
-  - Fixed double-init bug that confused new users
-  - Clear, sequential output — no more jumbled messages
-- **AI-Powered Conversational Interview** — Natural conversation replaces rigid menus
-  - AI asks follow-up questions based on your answers
-  - Infers project details from natural language
-  - Uses Haiku model for cost-efficient onboarding
-  - Falls back to simple prompts when no API key available
-  - Say "skip" or "just start" anytime to use defaults
-- **Update Notifications** — Automatic version checking on startup
-  - Background check against npm registry (non-blocking)
-  - Shows banner when new version available
-  - Displays update command: `npm update -g archondev`
+[Download Lite Packages →](https://archondev.io/download)
 
-### New in v2.4.0
-- **Dependency Graph Scheduler** — Analyze atom dependencies for parallel execution
-  - Wave-based scheduling using topological sort
-  - CLI: `archon parallel schedule`, `archon parallel run-waves`
-- **Eject Command** — Clean removal of ArchonDev from any project
-  - CLI: `archon eject --dry-run`
-- **Atomic Rollback** — Revert individual atom commits via git
-  - CLI: `archon revert <atom-id>`, `archon history`
-
-### New in v2.3.0
-- **5-Phase Interview System** — Conversational interview to define your project
-  - Phases: Discovery → Features → Technical → Branding → Review
-  - CLI: `archon interview`, `archon interview show`, `archon interview validate`
-- **Project Constitution** — Immutable specification generated from interview
-  - Formal contract between you and AI for what gets built
-  - Complexity tier calculation (SIMPLE/MODERATE/COMPLEX/ENTERPRISE)
-  - Build hours and cost estimation
-  - SHA-256 hash for integrity verification
-- **Challenge Mode** — AI pushback on scope creep during review
-  - Detects too many features, high complexity, vague requirements
-  - Suggests features to defer to post-MVP
-  - Scope score (0-100) to identify risk
-- **Atom Generator** — Transform Constitution into prd.json
-  - CLI: `archon generate`, `archon generate --dry-run`
-  - Auto-generates setup, database, auth atoms
-  - Splits complex features into backend/frontend atoms
-
-### New in v2.1.0
-- **GitHub Integration** — Connect GitHub for cloud execution with automatic PR creation
-  - Connect: `archon github connect`
-  - Status: `archon github status`
-  - Cloud agents clone repos, make changes, and submit PRs automatically
-- **Cloud Semantic Indexing** — Semantic search stored in Supabase pgvector
-  - Setup: `archon index init --cloud`
-  - Index: `archon index update --cloud`
-  - Search: `archon index search "query" --cloud`
-  - Cost: ~$0.01-0.30/month storage, queries are free
-- **Webhook-Triggered Worker** — Cloud worker with instant job pickup and auto-stop for cost savings
-
-### New in v2.0.0
-- **Cloud Agents** — Run agents in the cloud, close your laptop, check progress anywhere
-  - Execute: `archon execute ATOM-001 --cloud`
-  - Watch: `archon execute ATOM-001 --cloud --watch`
-  - Status: `archon cloud status`
-  - Requires: `archon github connect` first
-- **Cross-Device Sessions** — Save session, continue on another machine
-  - Save: `archon session save`
-  - Resume: `archon session resume [id]`
-- **Parallel Agents** — Run multiple agents simultaneously with git worktrees
-  - Execute: `archon execute --parallel ATOM-001 ATOM-002`
-  - Manage: `archon parallel status`, `archon parallel merge`
-- **One-Click Deploy** — Auto-detect platform and deploy
-  - Deploy: `archon deploy`
-  - Preview: `archon deploy --preview`
-- **Semantic Indexing** — AI-powered codebase search (local with Ollama or cloud with pgvector)
-  - Local: `archon index init --local`
-  - Cloud: `archon index init --cloud`
-  - Search: `archon index search "query"`
-- **Smart Orchestration** — System suggests optimal execution mode based on project size
-  - Configure: `archon preferences execution-set parallel.mode always`
-
-### New in v1.9.0
-- **Quality Level / Posture** — Tell AI how rigorous to be
-  - `prototype`: Fast iteration, minimal governance, skip complex patterns
-  - `production`: Secure defaults, basic monitoring, modular design (default)
-  - `enterprise`: Full governance with audit logging, RBAC, SLOs, compliance
-  - Applies to architecture, code generation, AND code review
-  - Prevents over-engineering for simple projects
-  - Trigger: Set `qualityLevel.posture` in ARCHITECTURE.md
-
-### New in v1.8.0
-- **SEO Optimization** — Automated meta tags, Open Graph, Twitter Cards
-  - AI scans, identifies gaps, generates missing tags
-  - User approves before changes are applied
-  - Trigger: `seo check`, `seo fix`, `add open graph`
-- **GEO for AI Search** — Optimize for ChatGPT, Perplexity, Claude citations
-  - AI generates 3 candidate 7-word brand phrases
-  - AI generates 3 candidate 50-word descriptions
-  - User selects preferred identity
-  - JSON-LD schemas for AI comprehension
-  - Trigger: `geo identity`, `geo schema`
-
-### New in v1.7.0
-- **Pre-Deploy Accessibility Check** — WCAG 2.2 AA compliance before going live
-  - Legal liability warnings (ADA, EAA, Section 508)
-  - Auto-fix for common issues (contrast, alt text, focus)
-  - WCAG 2.2 AA badge for compliant sites
-  - CLI: `archon a11y check`, `archon a11y fix`, `archon a11y badge`
-
-### New in v1.6.x
-- **Task Extraction Protocol** — AI confirms all items in multi-item requests before starting
-  - Prevents lost requirements (AI often forgets items 3+ in a list)
-  - Trigger phrases: `plan these tasks`, `task status`, `what's on my list`
-- **Smart Onboarding** — Detects new project, existing project, or continuing session
-- **Code Review Mode** — AI reviews code without modifying it
-
-### Tools & Extensions
-- **Local Database** — Optional SQLite for tracking atoms and learnings
-- **VS Code Extension** — Real-time diagnostics with quick-fix suggestions
+**What you get:**
+- ARCHITECTURE.md template with best practices
+- **Quality Level / Posture** — Tell AI if it's prototype, production, or enterprise-grade
+- IDE-specific rule files (.cursorrules, CLAUDE.md, GEMINI.md, etc.)
+- Progress tracking templates
+- **DEPENDENCIES.md** — Track file-level dependencies to prevent regressions
+- **First-Run Walkthrough** — Guided onboarding when AI detects your governance files
+- **Code Review Mode** — Structured code review without changing your code
+- **Local Database** — Track atoms and learnings in SQLite (no CLI required)
+- **Memory Management** — Context handoff protocol for long sessions
+- **Task Extraction Protocol** — AI confirms all items before starting, nothing gets forgotten
+- **Pre-Deploy Accessibility** — WCAG 2.2 AA check before going live, legal liability warnings
+- Works with any AI coding assistant
 
 ---
 
-## CLI Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `archon` | Interactive mode |
-| `archon interview` | 5-phase project interview |
-| `archon generate` | Generate prd.json from Constitution |
-| `archon plan <description>` | Create governed work item |
+| `archon` | Interactive mode — just run and follow prompts |
+| `archon init` | Initialize in your project |
+| `archon login` | Authenticate with ArchonDev (tier selection on first login) |
+| `archon upgrade` | Upgrade to BYOK (free unlimited) or Managed plan |
+| `archon status` | Show login status and current tier |
+| `archon plan <description>` | Create a work item with AI planning (extracts and confirms multi-item requests) |
 | `archon execute <atom-id>` | Execute with quality gates |
-| `archon execute --cloud` | Execute in cloud (creates PR) |
-| `archon execute --parallel` | Execute multiple atoms in parallel |
+| `archon list` | List all work items |
+| `archon show <atom-id>` | Show details |
+| `archon watch` | Live TUI dashboard with status and credits |
+| `archon bug report <title>` | Bug report with root cause analysis |
+| `archon review init` | Initialize AI-powered code review |
+| `archon review analyze` | Scan project and populate review tasks |
+| `archon review run` | Run AI review on pending tasks |
+| `archon credits` | View credit balance |
+| `archon credits add` | Purchase credits |
+| `archon credits budget` | Set monthly budget and alerts |
+| `archon keys add <provider>` | Add your own API key — BYOK (Bring Your Own Key) |
+| `archon keys list` | Show configured API keys by provider |
+| `archon preferences` | Interactive settings menu (billing, models, keys, usage) |
+| `archon models` | List available AI models |
+| `archon deps list` | View file dependency rules |
+| `archon deps add` | Add a new dependency rule |
+| `archon deps check --files <list>` | Check for downstream impacts |
+| `archon deps graph` | Generate Mermaid dependency diagram |
+| `archon a11y check` | Run WCAG 2.2 AA accessibility audit |
+| `archon a11y fix` | Auto-fix common accessibility issues |
+| `archon a11y badge` | Add accessibility compliance badge |
+| `archon a11y pre-deploy` | Interactive pre-deployment check |
+| `archon seo check` | Run SEO meta tag audit |
+| `archon seo fix` | Apply recommended SEO fixes |
+| `archon geo identity` | Generate brand identity phrases for AI citation |
+| `archon geo schema` | Generate JSON-LD schemas |
 | `archon github connect` | Link GitHub account for cloud execution |
 | `archon github status` | Check GitHub connection status |
+| `archon session save [name]` | Save current session to cloud |
+| `archon session resume [id]` | Resume session on another device |
+| `archon execute ATOM --cloud` | Execute in cloud (creates PR when done) |
 | `archon cloud status` | List cloud executions |
-| `archon session save` | Save session for cross-device |
-| `archon session resume` | Resume saved session |
+| `archon parallel cloud ATOM-001 ATOM-002` | Queue multiple atoms for cloud execution (Credits tier) |
+| `archon index init [--local\|--cloud]` | Initialize semantic indexing |
+| `archon index update [--cloud]` | Index changed files |
+| `archon index search "query" [--cloud]` | Semantic code search |
 | `archon parallel status` | Show parallel execution status |
 | `archon deploy` | One-click deploy (auto-detect platform) |
-| `archon index init [--local\|--cloud]` | Initialize semantic index |
-| `archon index update [--cloud]` | Index changed files |
-| `archon index search <query> [--cloud]` | Semantic codebase search |
-| `archon review init` | Initialize code review |
-| `archon a11y check` | Run WCAG 2.2 AA audit |
-| `archon deps list` | View dependency rules |
-| `archon watch` | Live TUI dashboard |
-| `archon seo check` | Run SEO meta tag audit |
-| `archon geo identity` | Generate brand identity phrases |
+| `archon cleanup check` | Analyze workspace for bloat |
+| `archon cleanup run` | Execute cleanup tasks |
+| `archon cleanup auto [enable\|disable]` | Enable/disable auto cleanup on start |
 
-[Full CLI Reference →](https://archondev.io/docs#cli-reference)
-
----
+**Tip:** Use `archon plan --edit` to adjust title and acceptance criteria before planning.
+**Web Checks:** If Archon detects a web project, it prompts to run A11y/SEO/GEO checks and stores your preference in `.archon/config.yaml`.
 
 ## Pricing
 
 | Tier | Cost | What You Get |
 |------|------|--------------|
-| **Free** | $0 | Ultra-cheap models (GPT-5-nano, Gemini Flash-Lite) |
-| **Credits** | Pay as you go | All models, 10% service fee |
-| **BYOK** | $0 | Use your own API keys |
+| **Free** | $0 | Ultra-cheap models (GPT-5-nano, GPT-4.1-nano, Gemini 2.5 Flash-Lite) — limited usage |
+| **BYOK** (Bring Your Own Key) | **$0** | Use your own API keys, **unlimited usage**, all models |
+| **Managed Plan** | 10% fee | All models, we handle billing, no API key setup |
+| **Claude Subscription** *(coming soon)* | Your existing sub | Use Claude Pro/Max subscription instead of API keys |
 
-No subscriptions. No commitments.
+No subscriptions. No commitments. Start free, upgrade anytime with `archon upgrade`.
+
+### Claude Pro/Max Subscription Support (Coming Soon)
+
+If you have an existing Claude subscription, you'll soon be able to use it with ArchonDev instead of API keys:
+
+- **Claude Pro** ($20/mo) — Use your Pro subscription
+- **Claude Max 5x** ($100/mo) — Higher limits for power users  
+- **Claude Max 20x** ($200/mo) — Maximum throughput
+
+This works similarly to how Claude Code allows subscription-based access. We're currently waiting on Anthropic to provide a public OAuth API for third-party applications. **For now, use BYOK (bring your own API key)** — we'll notify you when subscription support is available.
+
+## How It Works
+
+1. **Login & Choose Tier** — Create account, pick FREE/BYOK/Credits
+2. **AI Interview** — Natural conversation about your project (or skip to defaults)
+3. **Define Your Rules** — ARCHITECTURE.md with boundaries and invariants
+4. **AI Reads Rules First** — Every session starts by understanding your architecture
+5. **Changes Are Validated** — Quality gates check code before it's applied
+6. **Learnings Persist** — Insights saved for future sessions
+
+## First Run Experience
+
+```bash
+$ archon
+
+ArchonDev - AI-Powered Development Governance
+────────────────────────────────────────────────
+
+Logged in as: you@example.com
+Tier: Free (basic models)
+
+⚠️  FREE TIER: Limited usage. Upgrade options:
+  • BYOK (FREE) - Unlimited usage with your own API keys
+  • Managed Plan - Just 10% fee on AI costs, zero setup
+→ Run 'archon upgrade' to unlock unlimited access
+
+→ What kind of project are you building?
+  [AI asks natural follow-up questions based on your answers]
+  (Type "upgrade" or "help" anytime)
+
+✓ Project initialized!
+```
+
+### In-Session Commands
+
+Type these anytime during interactive prompts:
+
+| Command | Description |
+|---------|-------------|
+| `upgrade` | Open tier upgrade menu |
+| `status` | Show login and tier info |
+| `keys` | List configured API keys |
+| `help` | Show available commands |
+| `quit` | Exit ArchonDev |
+
+## Cloud Execution
+
+Run AI agents in the cloud — close your laptop and get a PR when it's done.
+
+```bash
+# 1. Authenticate
+archon login
+
+# 2. Connect GitHub (one-time setup)
+archon github connect       # Opens browser for authorization
+archon github status        # Verify connection
+
+# 3. Plan locally, execute in cloud
+archon plan "add user settings page"
+archon execute ATOM-001 --cloud
+
+# 3b. Queue multiple atoms in parallel (Credits tier)
+archon parallel cloud ATOM-001 ATOM-002
+
+# 4. Check progress
+archon cloud status         # List all cloud executions
+archon cloud logs <id>      # View execution logs
+```
+
+The cloud worker clones your repo, runs the Executor agent, creates a feature branch, and opens a PR. You can close your terminal after queuing.
+Cloud execution is Credits-only. BYOK and Free tiers run locally.
+
+## Working with Existing Projects
+
+Have a project created by another AI agent? ArchonDev can review it first, then govern future changes.
+
+```bash
+# Step 1: Review existing code
+cd your-existing-project
+archon review init        # Create local review database
+archon review analyze     # Scan project structure
+archon review run --all   # AI reviews all features
+archon review export > review-report.md
+
+# Step 2: Set up governance
+archon init --analyze     # Creates ARCHITECTURE.md
+
+# Step 3: Fix issues with governed workflow
+archon plan "fix critical issues from review"
+archon execute <atom-id>
+```
+
+The CLI detects existing projects and suggests this workflow automatically.
+
+## Documentation
+
+- [archondev.io](https://archondev.io) — Main website with animated AI problems story
+- [AI Coding Problems Research](docs/ai-coding-problems-research.md) — Market research on AI coding assistant issues
 
 ---
 
-## Links
-
-- **Website:** [archondev.io](https://archondev.io)
-- **Documentation:** [archondev.io/docs](https://archondev.io/docs)
-- **Changelog:** [archondev.io/changelog](https://archondev.io/changelog)
-- **Download Lite Packages:** [archondev.io/download](https://archondev.io/download)
-
----
-
-## License
-
-MIT © [Jumping Ahead Corp.](https://archondev.io)
-
----
-
-<p align="center">
-  <sub>Built with the Ralph Protocol — fresh context, persistent learning.</sub>
-</p>
+*ArchonDev by Jumping Ahead Corp.*
