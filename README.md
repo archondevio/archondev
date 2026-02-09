@@ -48,6 +48,10 @@ archon
 
 ---
 
+## BYOK Key Security
+
+When you use BYOK, your API keys stay on your machine and are never uploaded to ArchonDev servers. The CLI encrypts keys at rest and stores them with owner-only file permissions. BYOK runs locally; cloud execution is Credits-only.
+
 ### Lite Package — Enhance Your Tools
 
 Governance files for any IDE or AI tool. Drop into Cursor, Claude Code, Windsurf, or any AI coding assistant.

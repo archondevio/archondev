@@ -26,7 +26,7 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Key Features by Version
 
-### v2.18.3 (Current)
+### v2.19.2 (Current)
 - **Streamlined Onboarding** — Login → Tier → Init → Interview (proper sequence)
 - **AI-Powered Conversational Interview** — Natural conversation, not rigid menus
 - **Update Notifications** — Automatic version checking from npm registry
@@ -62,7 +62,7 @@ This folder contains internal documentation for ArchonDev development and market
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v2.18.3)
+## CLI Commands (v2.19.2)
 
 | Command | Description |
 |---------|-------------|
@@ -87,6 +87,13 @@ This folder contains internal documentation for ArchonDev development and market
 - Parallel execution uses the current CLI entrypoint and respects `--skip-gates`.
 - Quality-gate rollback is scoped to atom-touched files (no full working tree reset).
 - Cloud execution is Credits-only. BYOK and Free tiers run locally.
+
+## BYOK Key Security
+
+- BYOK keys are stored locally in `~/.archon/keys.json` and are never uploaded to ArchonDev servers.
+- Keys are encrypted at rest and the file is set to owner-only permissions (`0600`).
+- BYOK runs locally; cloud execution is Credits-only.
+- If your device is compromised, an attacker could access local files. Treat keys as sensitive secrets.
 
 ## Related
 
