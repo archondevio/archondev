@@ -87,6 +87,7 @@ This folder contains internal documentation for ArchonDev development and market
 - Parallel execution uses the current CLI entrypoint and respects `--skip-gates`.
 - Quality-gate rollback is scoped to atom-touched files (no full working tree reset).
 - Cloud execution is Credits-only. BYOK and Free tiers run locally.
+- Content-only requests (stories, outlines, lessons, visuals) use lightweight planning to avoid blocking.
 
 ## BYOK Key Security
 

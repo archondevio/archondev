@@ -4,6 +4,14 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.3] - 2026-02-09
+
+### Content Task Planning Recovery
+
+- Improved detection for content-only tasks (stories, lessons, outlines, visuals).
+- Automatically falls back to lightweight planning when adversarial planning fails on content tasks.
+- Allows user correction during planning to reclassify content requests without blocking.
+
 ## [2.18.3] - 2026-02-08
 
 ### Parallel Cloud + Web Checks UI

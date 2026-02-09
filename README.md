@@ -44,6 +44,8 @@ Then run:
 archon
 ```
 
+Content-only requests (stories, outlines, lessons, visuals) use lightweight planning to avoid blocking.
+
 [Full Documentation →](https://archondev.io/docs)
 
 ---
