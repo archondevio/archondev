@@ -115,15 +115,48 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Governance SQLite/FTS** — Search architecture, tasks, handoffs, and decisions
 - **Lite Packages Updated** — New AGD layout with task and handoff templates
 
+### New in v2.18.0
+- **Automated Model Registry Sync** — Daily pricing verification against provider docs
+  - New models: Claude Opus 4.6, GPT-5, GPT-5 Mini
+  - Confidence scoring prevents bad parses from corrupting billing
+  - CLI: `archon models sync`, `archon models list`
+
+### New in v2.17.0
+- **CLI Hardening** — Security and governance fixes
+  - Supabase SDK no longer imported directly in CLI (uses core helpers)
+  - Git commit hardened against shell injection
+  - Rollback scoped to atom-touched files only
+  - API key entry masked, plan editing supported
+
+### New in v2.16.0
+- **Intent Detection** — Smart routing for codebase analysis vs implementation
+  - New `explore` intent routes analysis requests to summary flow
+  - Polite prefixes ("Please", "Can you") no longer break pattern matching
+  - `runExploreFlow()` shows project summary without triggering planning
+
+### New in v2.15.0
+- **Credits Usage Dashboard** — Balance and model usage stats on startup
+  - Color-coded balance display, top 3 model usage breakdown
+
+### New in v2.14.0
+- **Auth & Payment UX Fixes** — 5 critical fixes (timeout bug, BYOK flow, payment clarity)
+
+### New in v2.12.0
+- **Billing Audit & Reconciliation** — Immutable audit log, daily balance reconciliation, discrepancy alerts
+  - CLI: `archon credits audit`
+
+### New in v2.11.0
+- **Atomic Billing Security** — Complete billing rewrite with server-side tier checks, atomic transactions, idempotency keys, race condition prevention
+
+### New in v2.10.0
+- **Multi-Provider Support** — OpenAI and Google AI alongside Anthropic
+- **Database-Driven Model Registry** — Pricing stored in Supabase for instant updates
+
 ### New in v2.6.0
 - **Smart Model Routing** — Automatic cost optimization for AI operations
   - Three model tiers: PLANNING ($$$), REASONING ($$), EXECUTION ($)
   - Operations automatically routed to optimal tier
-  - PLANNING: plan, init, design, architect_debate → Claude Opus, GPT-5.2
-  - REASONING: review, validate, analyze, seo/geo → Claude Sonnet, GPT-5
-  - EXECUTION: execute, deps, a11y, format → Claude Haiku, Gemini Flash
   - Configure per-tier model preferences via `archon preferences`
-  - Override with `--model <model-id>` flag
   - 80-95% cost savings on routine tasks
 
 ### New in v2.5.0
