@@ -62,13 +62,13 @@ Governance files for any IDE or AI tool. Drop into Cursor, Claude Code, Windsurf
 
 | IDE | Download |
 |-----|----------|
-| Cursor | [cursor-package.zip](https://github.com/archondevio/archondev/releases/latest/download/cursor-package.zip) (~20KB) |
-| Claude Code / Amp | [claude-amp-package.zip](https://github.com/archondevio/archondev/releases/latest/download/claude-amp-package.zip) (~20KB) |
-| Google Gemini | [gemini-package.zip](https://github.com/archondevio/archondev/releases/latest/download/gemini-package.zip) (~20KB) |
-| Windsurf / Codeium | [windsurf-package.zip](https://github.com/archondevio/archondev/releases/latest/download/windsurf-package.zip) (~20KB) |
-| VS Code + Copilot | [vscode-copilot-package.zip](https://github.com/archondevio/archondev/releases/latest/download/vscode-copilot-package.zip) (~20KB) |
-| OpenAI Codex | [codex-package.zip](https://github.com/archondevio/archondev/releases/latest/download/codex-package.zip) (~20KB) |
-| Generic (any AI) | [generic-package.zip](https://github.com/archondevio/archondev/releases/latest/download/generic-package.zip) (~20KB) |
+| Cursor | [cursor-package.zip](https://github.com/archondevio/archondev/releases/latest/download/cursor-package.zip) (~50KB) |
+| Claude Code / Amp | [claude-amp-package.zip](https://github.com/archondevio/archondev/releases/latest/download/claude-amp-package.zip) (~50KB) |
+| Google Gemini | [gemini-package.zip](https://github.com/archondevio/archondev/releases/latest/download/gemini-package.zip) (~50KB) |
+| Windsurf / Codeium | [windsurf-package.zip](https://github.com/archondevio/archondev/releases/latest/download/windsurf-package.zip) (~50KB) |
+| VS Code + Copilot | [vscode-copilot-package.zip](https://github.com/archondevio/archondev/releases/latest/download/vscode-copilot-package.zip) (~50KB) |
+| OpenAI Codex | [codex-package.zip](https://github.com/archondevio/archondev/releases/latest/download/codex-package.zip) (~50KB) |
+| Generic (any AI) | [generic-package.zip](https://github.com/archondevio/archondev/releases/latest/download/generic-package.zip) (~50KB) |
 
 **What's in the package:**
 
