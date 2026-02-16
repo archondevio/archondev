@@ -4,6 +4,27 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.6] - 2026-02-16
+
+### Conversational UX + Usage Transparency
+
+- Fixed interactive chat flow so mixed requests (analyze first, then proceed with a task) no longer stall in analysis-only mode.
+- Improved freeform continuity in startup flows to avoid unintended session exits.
+- Added tier-aware usage visibility in `archon usage`:
+  - `CREDITS`: since-last-top-up context, base cost, platform fee, credits deducted, and per-model spend share.
+  - `BYOK`: model usage and estimated provider spend for Today, Last 24 Hours, Last 7 Days, Last 30 Days, and Year to Date.
+- Fixed usage/profile resolution in CLI reporting paths and corrected `archon credits history` filtering.
+
+## [2.19.4] - 2026-02-15
+
+### Superpowers-Informed Workflow Hardening
+
+- Added required design-approval gate before plan generation in CLI planning flow.
+- Strengthened generated plans with explicit verification and acceptance-check steps.
+- Added root-cause investigation capture to bug intake (evidence, reproducibility, hypothesis).
+- Enforced two-stage AI review order: spec compliance first, then code quality.
+- Updated Lite package AGENTS/scenario guidance with design gate, root-cause gate, and two-stage review checklist.
+
 ## [2.19.3] - 2026-02-09
 
 ### Content Task Planning Recovery

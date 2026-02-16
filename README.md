@@ -109,6 +109,19 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Learning Persistence** — AI remembers patterns across sessions via `progress.txt`
 - **Quality Gates** — Every change must pass before commit
 
+### New in v2.19.6
+- **Conversational Flow Fixes** — Mixed requests like "analyze then help me do X" now continue smoothly into task handling.
+- **Usage Transparency by Tier** — `archon usage` now reports practical model-level spend:
+  - Credits: since-last-top-up context, base model cost, platform fee, and credits deducted.
+  - BYOK: estimated provider spend by model for Today, Last 24 Hours, Last 7 Days, Last 30 Days, and Year to Date.
+- **Usage History Reliability** — Fixed profile/user ID resolution in CLI usage commands to prevent false empty usage results.
+
+### New in v2.19.4
+- **Design Approval Gate** — Plan flow requires explicit design approval before plan generation.
+- **Plan Structure Enforcement** — Plans include explicit verification and acceptance-check steps.
+- **Root-Cause Bug Intake** — Bug reports now capture evidence, reproducibility, and root-cause hypothesis.
+- **Two-Stage AI Review** — Spec compliance review runs before code quality review.
+
 ### New in v2.19.0
 - **Governance Store CLI** — Status, task updates, handoffs, and legacy migration via `archon governance`
 - **AGD Migration** — Move legacy governance files into `.archon/active|history|archive`
