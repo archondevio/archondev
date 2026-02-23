@@ -4,6 +4,14 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.31] - 2026-02-23
+
+### One-Step Analysis Output for Plan-First Requests
+
+- Plan-first analysis requests now return recommendation + implementation plan + sample draft immediately, without requiring an intermediate `approve plan` round-trip.
+- Day-1 content detection was tightened to avoid accidentally pulling day-10/day-11 files into day-1 analysis.
+- Added smoother handoff language: users can continue with `save this`/`create atom` only when they want governed implementation.
+
 ## [2.19.30] - 2026-02-23
 
 ### Analysis-First Planning Flow

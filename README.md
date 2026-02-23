@@ -121,6 +121,11 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
 - **Explicit Task Conversion** — Users can create governed work from analysis with explicit `create atom`.
 - **Explicit Execution Control** — Chat execution requires explicit execute wording, preventing accidental starts from conversational `continue`.
 
+### New in v2.19.31
+- **One-Step Plan-First Output** — Analysis requests now return recommendation + implementation plan + sample draft in one response.
+- **Day-1 Scope Accuracy** — Day-1 lesson analysis now avoids cross-day contamination (day-10/day-11 files).
+- **Cleaner Intent Handoff** — Users can move from analysis to implementation with natural command `save this` (or `create atom`).
+
 ### New in v2.19.29
 - **Governance Steering (Not Hijacking)** — Architecture/path violations now pause execution with clear corrective guidance instead of hard-failing the run.
 - **Blocked-State Recovery** — Governance constraint hits now move atoms to `BLOCKED` (actionable correction state) rather than `FAILED` retry state.
