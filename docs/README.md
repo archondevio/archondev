@@ -4,6 +4,17 @@
 
 This folder contains internal documentation for ArchonDev development and marketing.
 
+## Current Status (2026-02-23)
+
+- Published `archondev@2.19.25` to npm.
+- Chat-first flow now keeps "read/analyze files" requests in exploration mode instead of creating execution atoms.
+- Execute failure handling no longer hard-crashes interactive sessions on invalid transition paths.
+- Apple Terminal safe mode has additional prompt/input hardening for dictation-heavy startup use.
+- Default premium model posture updated:
+  - Gemini 3.1 Pro via `gemini-3.1-pro-preview`
+  - OpenAI default: `gpt-5.3-codex`
+  - Anthropic defaults: Sonnet/Opus 4.6
+
 ## Documents
 
 | Document | Description |
@@ -26,7 +37,13 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Key Features by Version
 
-### v2.19.4 (Current)
+### v2.19.25 (Current)
+- **Chat-First Stability** — Read-only requests route to analysis flow instead of build/execute flow.
+- **Execute Failure Safety** — Invalid transition crash path fixed; failed atoms no longer terminate chat session.
+- **Apple Terminal Hardening** — Safe-mode prompt/input handling simplified for stability.
+- **Model Defaults Refresh** — Gemini 3.1 Pro, GPT-5.3 Codex, Sonnet/Opus 4.6 defaults aligned.
+
+### v2.19.4
 - **Design Approval Gate** — Plan flow now requires explicit design approval before adversarial planning.
 - **Plan Structure Enforcement** — Plans are normalized with verification and acceptance-check steps.
 - **Root-Cause Bug Intake** — Bug workflow now captures evidence, reproducibility, and root-cause hypothesis.
@@ -62,7 +79,7 @@ This folder contains internal documentation for ArchonDev development and market
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v2.19.4)
+## CLI Commands (v2.19.25)
 
 | Command | Description |
 |---------|-------------|
