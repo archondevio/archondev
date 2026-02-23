@@ -26,11 +26,11 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Key Features by Version
 
-### v2.19.2 (Current)
-- **Streamlined Onboarding** — Login → Tier → Init → Interview (proper sequence)
-- **AI-Powered Conversational Interview** — Natural conversation, not rigid menus
-- **Update Notifications** — Automatic version checking from npm registry
-- **Web Checks Routing** — Web projects surface SEO/GEO/A11y menu + last-run status
+### v2.19.4 (Current)
+- **Design Approval Gate** — Plan flow now requires explicit design approval before adversarial planning.
+- **Plan Structure Enforcement** — Plans are normalized with verification and acceptance-check steps.
+- **Root-Cause Bug Intake** — Bug workflow now captures evidence, reproducibility, and root-cause hypothesis.
+- **Two-Stage AI Review** — Spec-compliance review runs before code-quality review.
 
 ### v2.4.0
 - **Dependency Graph Scheduler** — Wave-based parallel execution
@@ -62,7 +62,7 @@ This folder contains internal documentation for ArchonDev development and market
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v2.19.2)
+## CLI Commands (v2.19.4)
 
 | Command | Description |
 |---------|-------------|
