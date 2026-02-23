@@ -4,6 +4,15 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.30] - 2026-02-23
+
+### Analysis-First Planning Flow
+
+- Requests that ask to review/analyze files and provide a plan first now stay in analysis mode after approval, instead of immediately creating atoms.
+- Added explicit `create atom` chat directive to convert approved analysis into a governed task only when user confirms.
+- Tightened chat execution control: implementation now requires explicit execute wording (`execute atom`, `run atom`, etc.) instead of generic `continue`.
+- Added lightweight markdown file analysis summary for analysis-first flows to provide concrete recommendation context before task creation.
+
 ## [2.19.29] - 2026-02-23
 
 ### Governance Steering Instead of Hard Failure

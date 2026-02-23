@@ -116,6 +116,11 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
   - BYOK: estimated provider spend by model for Today, Last 24 Hours, Last 7 Days, Last 30 Days, and Year to Date.
 - **Usage History Reliability** — Fixed profile/user ID resolution in CLI usage commands to prevent false empty usage results.
 
+### New in v2.19.30
+- **Analysis-First by Default** — Approval for analysis requests now returns evaluated recommendations first, without creating atoms.
+- **Explicit Task Conversion** — Users can create governed work from analysis with explicit `create atom`.
+- **Explicit Execution Control** — Chat execution requires explicit execute wording, preventing accidental starts from conversational `continue`.
+
 ### New in v2.19.29
 - **Governance Steering (Not Hijacking)** — Architecture/path violations now pause execution with clear corrective guidance instead of hard-failing the run.
 - **Blocked-State Recovery** — Governance constraint hits now move atoms to `BLOCKED` (actionable correction state) rather than `FAILED` retry state.
