@@ -4,6 +4,22 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.29] - 2026-02-23
+
+### Governance Steering Instead of Hard Failure
+
+- Execution now treats architecture boundary/path violations as guided pauses instead of hard failure outcomes.
+- Governance violations move atoms to `BLOCKED` with clear corrective guidance, rather than `FAILED` retry semantics.
+- Added explicit violation parsing in execute flow so users see actionable path-level guidance.
+
+## [2.19.28] - 2026-02-23
+
+### Proposal Approval Context Fix
+
+- Fixed chat flow where `approve`/`approve plan` could be interpreted as a new task description.
+- Added pending proposal context handling so approval directives apply to the previously proposed request.
+- Unified approval handling across agent loop and follow-up conversation loop for consistent behavior.
+
 ## [2.19.6] - 2026-02-16
 
 ### Conversational UX + Usage Transparency

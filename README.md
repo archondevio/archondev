@@ -116,6 +116,11 @@ Real-time violations + **quick-fix suggestions**. Press Ctrl+. (Cmd+.) for light
   - BYOK: estimated provider spend by model for Today, Last 24 Hours, Last 7 Days, Last 30 Days, and Year to Date.
 - **Usage History Reliability** — Fixed profile/user ID resolution in CLI usage commands to prevent false empty usage results.
 
+### New in v2.19.29
+- **Governance Steering (Not Hijacking)** — Architecture/path violations now pause execution with clear corrective guidance instead of hard-failing the run.
+- **Blocked-State Recovery** — Governance constraint hits now move atoms to `BLOCKED` (actionable correction state) rather than `FAILED` retry state.
+- **Approval Context Reliability** — `approve` / `approve plan` now correctly apply to the pending proposal request in chat mode.
+
 ### New in v2.19.4
 - **Design Approval Gate** — Plan flow requires explicit design approval before plan generation.
 - **Plan Structure Enforcement** — Plans include explicit verification and acceptance-check steps.
