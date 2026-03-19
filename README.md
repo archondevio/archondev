@@ -1,6 +1,33 @@
-# ArchonDev
+<p align="center">
+  <img src="https://archondev.io/images/logo-watermark.png" alt="ArchonDev" width="180" />
+</p>
 
-**AI Development Governance — Stop Babysitting Your AI Agent**
+<h1 align="center">ArchonDev</h1>
+
+<p align="center">
+  <strong>Govern AI Code Your Way</strong><br>
+  CLI for total control. Drop-in for your existing tools.
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/archondev"><img src="https://img.shields.io/npm/v/archondev.svg" alt="npm version"></a>
+  <a href="https://archondev.io">Website</a> •
+  <a href="https://archondev.io/docs">Documentation</a> •
+  <a href="https://archondev.io/download">Download</a> •
+  <a href="https://archondev.io/changelog">Changelog</a>
+</p>
+
+---
+
+## What is ArchonDev?
+
+ArchonDev is an AI-powered development governance system that prevents your AI coding assistant from making architectural mistakes, forgetting context, and introducing regressions.
+
+**The Problem:** AI coding assistants are powerful but unreliable. They hallucinate, ignore your architecture, forget what they learned, and break things they just fixed.
+
+**The Solution:** ArchonDev adds governance — architectural rules your AI must follow, quality gates before every change, and persistent learning across sessions.
+
+---
 
 ## Two Ways to Use ArchonDev
 
