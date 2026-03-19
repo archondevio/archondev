@@ -4,20 +4,32 @@
 
 This folder contains internal documentation for ArchonDev development and marketing.
 
-## Current Status (2026-03-08)
+## Current Status (2026-03-19)
 
-- Published stable `archondev@2.19.56` to npm (`latest` tag).
+- Published stable `archondev@2.19.57` to npm (`latest` tag).
 - Published test channel `archondev@2.19.56-rc.21` to npm (`rc` tag).
+- **v2.19.57: G-Stack CLI Integration** — Runtime features inspired by [gstack](https://github.com/garrytan/gstack) now ship as executable CLI infrastructure:
+  - **Risk Scoring** — 0-100 risk assessment before atom execution. Scores protected paths, stable components, dependency fan-out. HIGH/CRITICAL triggers confirmation based on approval policy.
+  - **Fix-First Code Review** — `archon review` auto-fixes mechanical issues, batches ambiguous decisions, detects scope drift and doc staleness. Auto-detects review mode (engineering/design/scope).
+  - **Ship Pipeline** — `archon ship`: merge base → tests → review → risk → version → changelog → PR. Say "ship it" in chat.
+  - **Post-Ship Doc Staleness** — After PR creation, scans for docs referencing changed code. Offers to create update tasks.
+  - **Headless Browser QA** — `archon qa`: Playwright health checks with diff-aware page testing (Astro, Next.js, Remix).
+  - **Session Retrospective** — `archon retro`: duration, atoms completed/failed, gate pass rate, risk averages, file hotspots.
+  - **Ship Intent Detection** — Chat directives "ship it", "deploy", "create pr", "go live", "publish", "release" route to ship pipeline.
+- **Lite packages enhanced with Context-Aware Intelligence** — AI proactively detects user context and offers relevant capabilities instead of requiring slash commands.
+- **Lite capabilities (inspired by gstack evaluation):**
+  - **Design Governance Chain** — DESIGN.md as design source of truth, contextual design review on frontend changes, design system generation.
+  - **AI Slop Detection** — 10-item blacklist of recognizable AI-generated design anti-patterns, scored A-F.
+  - **Fix-First Code Review** — Auto-fixes mechanical issues, only asks about genuinely ambiguous ones.
+  - **Self-Regulation Protocol** — Blast radius checks, file count limits, 3-strike rule, change checkpoints.
+  - **Systematic Debugging** — Root cause investigation first, 3-strike hypothesis testing, mandatory regression tests.
+  - **Completion Status Protocol** — DONE / DONE_WITH_CONCERNS / BLOCKED / NEEDS_CONTEXT reporting.
+  - **Ship Readiness Dashboard** — Pre-ship checklist tracking all quality gates across the session.
+  - **Project Strategy Questions** — Forcing questions for new projects (demand reality, narrowest wedge, etc.).
+  - **Scope Review** — 4 modes (expand/selective/hold/reduce) when scope creep detected mid-feature.
+  - **Progress Reflection** — Solo retro at natural milestones (what worked, what didn't, carry forward).
 - Lite packages deployed to Bunny + GitHub release with updated workflow guidance (design approval gate, root-cause debugging gate, two-stage review checklist).
-- CLI now enforces design-approval metadata checks, stronger plan structure, root-cause bug intake context, and staged AI review order (spec then quality).
 - CLI journey is conversational-first with lower-friction continuation and approval handling.
-- BYOK startup now shows usage transparency on launch, including explicit zero-state model usage output when usage is empty.
-- Chat-first flow now routes "read/analyze files" requests to explore mode and no longer crashes on failed execution state transitions.
-- Chat approval flow now correctly binds `approve plan` to the pending proposal context (no accidental atoms titled `approve`).
-- Analysis-first requests now stay analysis-first after approval and return recommendation output before any atom is created.
-- Chat continuation now supports natural directives such as `continue`, `move forward`, and `go ahead`.
-- Governance execution now steers with explicit guidance by moving boundary/path violations to `BLOCKED` rather than failing execution.
-- Path-scope governance blocks now trigger automatic re-plan + retry recovery in chat mode, with a second stricter retry phase when needed.
 - Pricing model is now only: Free download mode (no built-in AI) and BYOK CLI mode (user-provider billed tokens). No paid tier, no credits, no subscription gate.
 
 ## Documents
@@ -39,7 +51,23 @@ This folder contains internal documentation for ArchonDev development and market
 | **Architectural Governance** | .archon/active/architecture.md | Define components, boundaries, invariants |
 | **Dependency Tracking** | DEPENDENCIES.md | Track file-level dependencies, prevent regressions |
 | **Learning Persistence** | progress.txt | Append-only log of patterns and insights |
-| **AI Instructions** | AGENTS.md | Code review, database, memory management, accessibility |
+| **AI Instructions** | AGENTS.md | Code review, context-aware intelligence, governance |
+| **Context-Aware Triggers** | AGENTS.md | Proactive detection of user context → relevant capability offers |
+| **Design Governance** | DESIGN.md + archondev-scenarios/design-review.md | Design system source of truth, visual audit, interaction states |
+| **AI Slop Detection** | AGENTS.md | 10-item blacklist of AI design anti-patterns, scored A-F |
+| **Fix-First Code Review** | AGENTS.md | Auto-fix mechanical issues, ask about ambiguous ones |
+| **Self-Regulation** | AGENTS.md | Blast radius checks, file limits, 3-strike rule, checkpoints |
+| **Systematic Debugging** | archondev-scenarios/systematic-debugging.md | Root cause first, hypothesis testing, regression prevention |
+| **Completion Status** | AGENTS.md | DONE / DONE_WITH_CONCERNS / BLOCKED / NEEDS_CONTEXT |
+| **Ship Readiness Dashboard** | archondev-scenarios/ship-readiness.md | Pre-ship checklist across all quality gates |
+| **Scope Review** | archondev-scenarios/scope-review.md | Expand/selective/hold/reduce when scope creep detected |
+| **Progress Reflection** | AGENTS.md | Solo retro at milestones — what worked, what didn't |
+| **Risk Scoring (CLI)** | src/core/risk/ | 0-100 pre-execution risk assessment, policy-aware confirmation |
+| **Ship Pipeline (CLI)** | src/core/ship/ + src/cli/ship.ts | Merge → test → review → risk → version → changelog → PR |
+| **Browser QA (CLI)** | src/core/browser/ + src/cli/qa.ts | Playwright health checks, diff-aware page testing |
+| **Session Metrics (CLI)** | src/core/metrics/ + src/cli/retro.ts | Duration, atoms, gate pass rate, file hotspots |
+| **Scope Drift Detection (CLI)** | src/core/code-review/scope-drift.ts | Detects files modified outside planned scope |
+| **Doc Staleness Detection (CLI)** | src/core/code-review/doc-staleness.ts | Flags docs referencing changed code |
 | **Task Extraction** | .archon/active/tasks.json | Track multi-item requests, prevent lost requirements |
 | **Handoff Context** | .archon/current_context.md | Current context for session handoff |
 | **Accessibility Check** | archondev-scenarios/pre-deploy-accessibility.md | WCAG 2.2 AA compliance before going live |
@@ -49,8 +77,14 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Key Features by Version
 
-### v2.19.56 (Current Stable)
-- **Stable latest release** — current default install from npm.
+### v2.19.57 (Current Stable)
+- **G-Stack CLI Integration** — Runtime features inspired by [gstack](https://github.com/garrytan/gstack):
+  - `archon ship` — Executable ship pipeline (merge base → tests → review → risk → version → changelog → PR)
+  - `archon qa` — Headless browser QA with diff-aware page testing
+  - `archon retro` — Session retrospective with quantitative metrics
+  - Pre-execute risk scoring (0-100) with policy-aware confirmation
+  - Fix-first code review with scope drift detection and doc staleness checks
+  - Ship intent detection in chat ("ship it", "deploy", "create pr", etc.)
 - **Free/BYOK model enforced** — no paid tier, no credits, no subscription gate for core product usage.
 - **Native SQLite runtime** — local SQLite now uses Node built-in `node:sqlite` (Node 22+) and no longer depends on `better-sqlite3`.
 
@@ -127,13 +161,18 @@ This folder contains internal documentation for ArchonDev development and market
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v2.19.56)
+## CLI Commands (v2.19.57)
 
 | Command | Description |
 |---------|-------------|
 | `archon` | Interactive mode (login, mode selection, interview) |
 | `archon plan <description>` | Create governed work item |
-| `archon execute <atom-id>` | Execute with quality gates |
+| `archon execute <atom-id>` | Execute with risk scoring and quality gates |
+| `archon ship` | Ship pipeline: merge → test → review → risk → version → changelog → PR |
+| `archon ship --dry-run` | Run all ship checks without committing or pushing |
+| `archon qa` | Visual QA with headless browser health checks (Playwright) |
+| `archon qa --url <url>` | Test specific URL with health scoring |
+| `archon retro` | Session retrospective with quantitative metrics |
 | `archon execute --cloud` | Execute in cloud (creates PR) |
 | `archon interview` | 5-phase project interview |
 | `archon generate` | Generate prd.json from Constitution |
