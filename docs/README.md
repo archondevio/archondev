@@ -6,7 +6,8 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Current Status (2026-03-08)
 
-- Published `archondev@2.19.56-rc.16` to npm (`rc` tag).
+- Published stable `archondev@2.19.56` to npm (`latest` tag).
+- Published test channel `archondev@2.19.56-rc.21` to npm (`rc` tag).
 - Lite packages deployed to Bunny + GitHub release with updated workflow guidance (design approval gate, root-cause debugging gate, two-stage review checklist).
 - CLI now enforces design-approval metadata checks, stronger plan structure, root-cause bug intake context, and staged AI review order (spec then quality).
 - CLI journey is conversational-first with lower-friction continuation and approval handling.
@@ -26,7 +27,7 @@ This folder contains internal documentation for ArchonDev development and market
 | [ai-coding-problems-research.md](ai-coding-problems-research.md) | Market research on AI coding assistant problems. Compiled findings from METR, Stack Overflow, Apiiro, and other sources. |
 | [lite-features-prd.md](lite-features-prd.md) | Product requirements for Lite package enhancements. |
 | [lite-user-journey-evaluation-2026-02-15.md](lite-user-journey-evaluation-2026-02-15.md) | Canonical Lite user-journey map (as-is, ideal flow, implementation, and future evaluation criteria). |
-| [cli-user-journey-evaluation-2026-02-15.md](cli-user-journey-evaluation-2026-02-15.md) | Canonical CLI user-journey map including tiering, model selection, payment/top-up, and insufficient-funds recovery. |
+| [cli-user-journey-evaluation-2026-02-15.md](cli-user-journey-evaluation-2026-02-15.md) | Historical CLI journey baseline from pre-free/BYOK consolidation (kept for implementation traceability). |
 | [kilo-inspired-features-prd.md](kilo-inspired-features-prd.md) | Feature analysis inspired by Kilo AI. |
 | [superpowers-integration-evaluation-2026-02-15.md](superpowers-integration-evaluation-2026-02-15.md) | Evaluation of `superpowers-main` features for Lite vs CLI adoption, exclusions, and rollout/deploy protocol. |
 | [video-script.md](video-script.md) | Script for ArchonDev promotional video. |
@@ -48,12 +49,17 @@ This folder contains internal documentation for ArchonDev development and market
 
 ## Key Features by Version
 
-### v2.19.56-rc.16 (Current RC)
+### v2.19.56 (Current Stable)
+- **Stable latest release** — current default install from npm.
+- **Free/BYOK model enforced** — no paid tier, no credits, no subscription gate for core product usage.
+- **Native SQLite runtime** — local SQLite now uses Node built-in `node:sqlite` (Node 22+) and no longer depends on `better-sqlite3`.
+
+### v2.19.56-rc.21 (Current RC)
 - **Original-Task Recovery Hardening** — Chat keeps high-signal original requests across exploratory follow-ups, so `do my original task` maps back correctly.
 - **Lower-Friction Approval Flow** — `yes`/`approve plan` now executes approved work directly in chat without an extra execution confirmation prompt.
 - **Noise Reduction Guards** — Duplicate rapid plan prompt output and accidental concurrent continue-runs are suppressed.
 
-### v2.19.38 (Current)
+### v2.19.38
 - **Staged Path-Scope Auto-Recovery** — Chat execution now auto-replans/retries path-scope governance blocks, then escalates to a forced-base-path retry if needed.
 - **Natural Continuation Commands** — `continue`/`move forward` execute continuation flow instead of creating accidental atoms.
 - **Analysis Approval Auto-Continue** — `yes`/`go ahead` after analysis-first planning now creates and begins implementation in one flow.
@@ -121,18 +127,18 @@ This folder contains internal documentation for ArchonDev development and market
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v2.19.38)
+## CLI Commands (v2.19.56)
 
 | Command | Description |
 |---------|-------------|
-| `archon` | Interactive mode (login, tier, interview) |
+| `archon` | Interactive mode (login, mode selection, interview) |
 | `archon plan <description>` | Create governed work item |
 | `archon execute <atom-id>` | Execute with quality gates |
 | `archon execute --cloud` | Execute in cloud (creates PR) |
 | `archon interview` | 5-phase project interview |
 | `archon generate` | Generate prd.json from Constitution |
 | `archon parallel schedule` | Analyze dependencies for parallel execution |
-| `archon parallel cloud <atom-ids...>` | Queue multiple atoms for cloud execution (Credits tier) |
+| `archon parallel cloud <atom-ids...>` | Legacy command (disabled in free/BYOK mode) |
 | `archon revert <atom-id>` | Revert atom commits |
 | `archon eject` | Remove ArchonDev from project |
 | `archon github connect` | Link GitHub for cloud execution |
@@ -153,7 +159,7 @@ This folder contains internal documentation for ArchonDev development and market
 - Parallel execution uses the current CLI entrypoint and respects `--skip-gates`.
 - Quality-gate rollback is scoped to atom-touched files (no full working tree reset).
 - Cloud execution is disabled in the current free/BYOK model.
-- BYOK tier now also shows startup usage and estimated provider spend, including explicit zero-state model usage when no usage exists.
+- BYOK mode now also shows startup usage and estimated provider spend, including explicit zero-state model usage when no usage exists.
 - BYOK shows per-model usage and cost by today/week/month/year in `archon preferences` → “View usage details.”
 - Interactive journey prompts are conversational-first; numbered menu selections remain optional shortcuts.
 - You can paste multi-line requests into interactive prompts; Archon captures them as a single response.
@@ -166,7 +172,7 @@ This folder contains internal documentation for ArchonDev development and market
 
 - BYOK keys are stored locally in `~/.archon/keys.json` and are never uploaded to ArchonDev servers.
 - Keys are encrypted at rest with AES-256-GCM and the file is set to owner-only permissions (`0600`).
-- BYOK runs locally; cloud execution is Credits-only.
+- BYOK runs locally; cloud execution is currently disabled in the free/BYOK model.
 - If your device is compromised, an attacker could access local files. Treat keys as sensitive secrets.
 
 ## Local Governance SQLite (Dev Only)

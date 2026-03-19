@@ -4,6 +4,20 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.57] - 2026-03-19
+
+### G-Stack Intelligence Integration
+
+Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — putting the burden of quality on the AI, not the user.
+
+- **Risk Scoring** — Numeric 0-100 risk assessment shown before atom execution. Scores protected paths (+20 HARD, +10 SOFT), STABLE components (+5), dependency fan-out, and file complexity. HIGH/CRITICAL risk prompts confirmation based on approval policy.
+- **Fix-First Code Review** — `archon review` now auto-fixes mechanical issues (unused imports, formatting), batches ambiguous decisions, and detects scope drift and doc staleness. Auto-detects review mode (engineering/design/scope) from changeset.
+- **Ship Pipeline** — `archon ship` runs: merge base → tests → fix-first review → risk score → version bump → changelog → commit → push → PR. Say "ship it" in chat to trigger. Supports `--dry-run` and `--skip-review`.
+- **Post-Ship Doc Staleness** — After PR creation, scans for docs referencing changed code that weren't updated. Offers to create a doc-update task.
+- **Headless Browser QA** — `archon qa` runs Playwright-based health checks (console errors, broken resources, layout stability, response time). Diff-aware: maps changed files to affected routes for Astro, Next.js, and Remix.
+- **Session Retrospective** — `archon retro` shows duration, atoms completed/failed, gate pass rate, average risk score, top failure gate, and file hotspots.
+- **Ship Intent Detection** — Chat directives "ship", "ship it", "deploy", "create pr", "go live", "publish", "release" route to the ship pipeline.
+
 ## [2.19.31] - 2026-02-23
 
 ### One-Step Analysis Output for Plan-First Requests

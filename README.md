@@ -25,6 +25,10 @@ npm install -g archondev; archon
 - Bug reporting with root cause analysis
 - AI-powered code review for any codebase
 - Multi-provider key support with adversarial features
+- **Risk scoring** — Numeric 0-100 risk assessment before execution
+- **Ship pipeline** — One command: review → test → version → changelog → PR
+- **Visual QA** — Headless browser health checks with diff-aware page testing
+- **Session retrospective** — Quantitative metrics on atoms, gates, and hotspots
 
 ### Option 2: Lite Package
 Copy governance files into any project. Works with your existing AI tools: **Cursor, Claude Code, Windsurf, Amp, Copilot, Gemini**, and more.
@@ -63,8 +67,7 @@ pnpm exec tsx scripts/init-governance-db.ts
 | `archon` | Interactive mode — just run and follow prompts |
 | `archon init` | Initialize in your project |
 | `archon login` | Authenticate with ArchonDev |
-| `archon upgrade` | Switch between Free and BYOK modes |
-| `archon config ai` | Guided BYOK setup (providers + key entry) |
+| `archon config ai` | Switch from Free mode to BYOK and configure provider keys |
 | `archon status` | Show login status and current mode |
 | `archon plan <description>` | Create a work item with AI planning (extracts and confirms multi-item requests) |
 | `archon execute <atom-id>` | Execute with quality gates |
@@ -109,6 +112,11 @@ pnpm exec tsx scripts/init-governance-db.ts
 | `archon index update [--cloud]` | Index changed files |
 | `archon index search "query" [--cloud]` | Semantic code search |
 | `archon parallel status` | Show parallel execution status |
+| `archon ship` | Ship pipeline: review → test → version → changelog → PR |
+| `archon ship --dry-run` | Run all ship checks without committing |
+| `archon qa` | Visual QA with headless browser health checks |
+| `archon qa --url <url>` | Test specific URL |
+| `archon retro` | Session retrospective with quantitative metrics |
 | `archon deploy` | One-click deploy (auto-detect platform) |
 | `archon cleanup check` | Analyze workspace for bloat |
 | `archon cleanup run` | Execute cleanup tasks |
@@ -169,7 +177,7 @@ FREE mode: no built-in AI calls.
 
 → What kind of project are you building?
   [AI asks natural follow-up questions based on your answers]
-  (Type "upgrade" or "help" anytime)
+  (Type "config ai" or "help" anytime)
 
 ✓ Project initialized!
 ```
@@ -180,7 +188,7 @@ Type these anytime during interactive prompts:
 
 | Command | Description |
 |---------|-------------|
-| `upgrade` | Open tier upgrade menu |
+| `config ai` | Open BYOK key setup |
 | `status` | Show login and mode info |
 | `keys` | List configured API keys |
 | `help` | Show available commands |
@@ -202,7 +210,7 @@ archon github status        # Verify connection
 archon plan "add user settings page"
 archon execute ATOM-001 --cloud
 
-# 3b. Queue multiple atoms in parallel (Credits tier)
+# 3b. Queue multiple atoms in parallel (legacy command; disabled in free/BYOK mode)
 archon parallel cloud ATOM-001 ATOM-002
 
 # 4. Check progress
