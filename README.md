@@ -74,6 +74,8 @@ Copy governance files into any project. Works with your existing AI tools: **Cur
 - **Memory Management** — Context handoff protocol for long sessions
 - **Task Extraction Protocol** — AI confirms all items before starting, nothing gets forgotten
 - **Pre-Deploy Accessibility** — WCAG 2.2 AA check before going live, legal liability warnings
+- **Expert Review Spec** — Generate a consultant-ready technical spec (gap analysis, approach review, UX enhancement) at any milestone
+- **Features Dashboard** — Live HTML page tracking which capabilities you've used, what's available, and what's recommended next
 - Works with any AI coding assistant
 
 ### Local Governance SQLite (Dev Only)

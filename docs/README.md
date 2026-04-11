@@ -28,6 +28,8 @@ This folder contains internal documentation for ArchonDev development and market
   - **Project Strategy Questions** — Forcing questions for new projects (demand reality, narrowest wedge, etc.).
   - **Scope Review** — 4 modes (expand/selective/hold/reduce) when scope creep detected mid-feature.
   - **Progress Reflection** — Solo retro at natural milestones (what worked, what didn't, carry forward).
+  - **Expert Review Spec** — Generate consultant-ready technical spec (gap analysis, approach review, UX enhancement) at any milestone.
+  - **Features Dashboard** — Live HTML page tracking which capabilities you've used, what's available, and what's recommended next. Updated automatically each session.
 - Lite packages deployed to Bunny + GitHub release with updated workflow guidance (design approval gate, root-cause debugging gate, two-stage review checklist).
 - CLI journey is conversational-first with lower-friction continuation and approval handling.
 - Pricing model is now only: Free download mode (no built-in AI) and BYOK CLI mode (user-provider billed tokens). No paid tier, no credits, no subscription gate.
@@ -71,6 +73,8 @@ This folder contains internal documentation for ArchonDev development and market
 | **Task Extraction** | .archon/active/tasks.json | Track multi-item requests, prevent lost requirements |
 | **Handoff Context** | .archon/current_context.md | Current context for session handoff |
 | **Accessibility Check** | archondev-scenarios/pre-deploy-accessibility.md | WCAG 2.2 AA compliance before going live |
+| **Expert Review Spec** | archondev-scenarios/expert-review.md | Consultant-ready technical spec: gap analysis, approach review, UX enhancement |
+| **Features Dashboard** | archondev-scenarios/features-dashboard.md + .archon/dashboard-template.html | Live HTML page tracking feature usage, availability, and recommendations |
 | **Governance Store (SQLite)** | .archon/governance.db | Local-only searchable governance DB (architecture, tasks, handoffs, decisions) |
 | **Lite Journey Reference** | docs/lite-user-journey-evaluation-2026-02-15.md | Required baseline for evaluating Lite UX changes before implementation |
 | **CLI Journey Reference** | docs/cli-user-journey-evaluation-2026-02-15.md | Required baseline for evaluating CLI UX changes before implementation |

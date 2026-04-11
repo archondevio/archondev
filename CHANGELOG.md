@@ -4,6 +4,16 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [2.19.58] - 2026-04-11
+
+### New Lite Features: Expert Review & Features Dashboard
+
+- **Expert Review Spec** — New scenario (`expert review`) generates a consultant-ready technical spec covering gap analysis (what's missing), approach review (what should be done differently), and experience enhancement (what would improve the UX). Output is a self-contained markdown document at `docs/expert-review-[DATE].md` that can be shared with outside reviewers. Includes a reviewer response template for structured feedback.
+- **Features Dashboard** — New scenario (`show dashboard`) generates and maintains a live HTML page (`.archon/dashboard.html`) that tracks which ArchonDev capabilities the user has used, which are available, and which are recommended based on current project context. Updated automatically at session start, after feature first use, and at session end.
+- **New Context Triggers** — Expert Review offered at milestones; Features Dashboard offered when users ask about capabilities.
+- **Session Start Protocol** — Now includes dashboard update step with feature usage count.
+- **Dark Mode Contrast Fix** — Red text across the website now uses high-contrast colors in dark mode for better readability.
+
 ## [2.19.57] - 2026-03-19
 
 ### G-Stack Intelligence Integration
