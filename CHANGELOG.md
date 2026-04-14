@@ -4,6 +4,19 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [3.0.0] - 2026-04-14
+
+### Local-First CLI vNext
+
+- Reframed the CLI around a local-first, chat-first workflow with no required platform login on the primary path.
+- Made BYOK the only AI-enabled mode in the primary product flow, with local-only usage tracking and provider-billed costs.
+- Simplified startup into governance + BYOK readiness + immediate chat mode.
+- Added filesystem-based skill loading with contextual suggestions for design review, accessibility, debugging, ship readiness, SEO/GEO, and strategy.
+- Wired automatic continuity handoff into the live chat loop so pending work is preserved before context exhaustion.
+- Enabled safe parallel continuation for independent ready atoms using the existing wave scheduler and local worktrees.
+- Hid legacy remote/cloud/session/GitHub commands from normal help so the visible command surface matches the current product contract.
+- Updated release-facing documentation and help text to use local governance mode / BYOK language consistently.
+
 ## [2.19.58] - 2026-04-11
 
 ### New Lite Features: Expert Review & Features Dashboard
