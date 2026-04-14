@@ -4,6 +4,14 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [3.0.1] - 2026-04-14
+
+### Packaging Verification Follow-Through
+
+- Confirmed the npm package tarball matches the shipped local-first v3 CLI surface.
+- Preserved the `mode`-first help output with hidden legacy remote/cloud/session/GitHub commands.
+- Hardened runtime version detection so the running package context is preferred before global npm metadata.
+
 ## [3.0.0] - 2026-04-14
 
 ### Local-First CLI vNext

@@ -4,16 +4,16 @@
 
 This folder contains the public documentation snapshot for the current ArchonDev release.
 
-## Current Status (2026-04-14)
+## Current Status (2026-04-15)
 
-- Published stable `archondev@3.0.0` to npm (`latest` tag).
+- Published stable `archondev@3.0.1` to npm (`latest` tag).
 - Product direction is now local-first CLI + BYOK AI with no required platform login on the primary path.
 - Lite packages remain free downloads for Cursor, Claude Code, Windsurf, VS Code, Gemini, Codex, and generic assistants.
 - Legacy remote/cloud/session commands still exist for backward compatibility, but they are hidden from the normal CLI surface and are not part of the primary product story.
 
 ## Release Highlights
 
-### v3.0.0: Local-First CLI vNext
+### v3.0.1: Local-First CLI vNext
 
 - Chat-first startup with governance loaded automatically from the current folder.
 - No required platform login for the main path.
@@ -37,7 +37,7 @@ This folder contains the public documentation snapshot for the current ArchonDev
 - Expert review spec
 - Features dashboard
 
-## CLI Commands (v3.0.0)
+## CLI Commands (v3.0.1)
 
 | Command | Description |
 |---------|-------------|
