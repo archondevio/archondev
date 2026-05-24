@@ -4,13 +4,62 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [3.1.0] - 2026-05-24
+
+### Two-Audience Marketing Framework — Memory for Humans, Clarity for Agents
+
+Brings ArchonDev into line with Nate Bjones's "Marketing Is Splitting in Two" framework. Marketing now serves two audiences: humans (who must remember) and AI agents (who must understand). The CLI and the Lite packages now produce artifacts for both halves, anchored to a living truth-layer artifact every content-touching command reads from.
+
+#### New CLI commands
+
+- **`archon truth-layer init`** — creates `.archon/truth-layer.md`, the living artifact holding identity, claims-and-evidence, customer language, proof, competitive positioning, constraints, pricing logic, objection bank, and category beliefs.
+- **`archon truth-layer audit`** — finds gaps between truth layer and detected public surfaces (unbacked claims, missing constraints, synthetic language, inconsistencies).
+- **`archon brand memory-map`** — Human Memory Map diagnostic. Six surfaces. Three tests (competitor, abstraction, two-thing). Single-sentence test ("Find me the one that ___").
+- **`archon geo claims`** — generate atomic claims (≤18 tokens each) for agent citation. Persists to `.archon/geo/ai-claims.json`.
+- **`archon geo washing-audit`** — AI-Washing Risk Register. Scans public copy for unsupported AI claims, produces severity-graded findings with evidence requirements and defensible rewrites.
+- **`archon geo audit`** — now defaults to a multi-surface Agent Clarity Audit (homepage, pricing, docs, comparison, integrations, customer stories, changelog, blog, README). Returns per-surface inference, contradiction risk, fix priority, aggregate coherence read, invisible loss scenarios, and ranked fix list. `archon geo audit --quick` keeps the legacy index.html-only check.
+
+#### Tightened CLI prompts (geo.ts)
+
+- Two-step context generation: `businessContext` + `audienceContext` are now produced and persisted as named artifacts at `.archon/geo/context.md` before identity generation.
+- Identity prompts now enforce the 7-word formula (Action Verb + Target + Benefit), the 18-token citation budget, the competitor test, and the pain/solution/proof/promise structure for the 50-word description.
+- New banned-words list covers both generic category furniture (`comprehensive, leveraging, world-class, end-to-end, ...`) AND 2026 AI-washing tells (`AI-native, AI-powered, AI-first, AI-driven, agentic, ...`). Candidates that fail validation are dropped, not surfaced.
+- FAQ generator now validates each answer sentence against the 18-token budget.
+
+#### Ship-readiness coherence gate
+
+- `archon ship` now runs a truth-layer coherence gate before the pipeline. If the changeset touches public-facing copy (README, pricing, homepage, docs landing, comparison, customer stories) and the truth-layer audit returns unbacked claims or inconsistencies, the ship is BLOCKED.
+- Override with `ARCHON_SKIP_COHERENCE_GATE=1` for emergency ships.
+
+#### New Lite skills
+
+- `archondev-skills/truth-layer.md`
+- `archondev-skills/human-memory-map.md`
+- `archondev-skills/ai-washing-audit.md`
+- `archondev-skills/geo-optimization.md` rewritten with the surface-walk protocol, AI-washing banned-words, and the Atomic Claim Page spec promoted from the admin-folder programmer handoff.
+- `archondev-skills/ship-readiness.md` extended with truth-layer coherence and AI-washing sweep checks.
+- `archondev-skills/seo-optimization.md` reframed: SEO is necessary but no longer sufficient.
+
+#### Self-application
+
+- ArchonDev's own truth layer published at `.archon/truth-layer.md`.
+- README.md, Lite READMEs, and `website/src/components/Features.astro` rewritten to remove AI-washing language ("AI-powered", "enterprise-grade") with defensible alternatives.
+- New page: `website/src/pages/agent-readiness.astro` explaining the two-audience framework, linked from the site header.
+
+#### Skill count
+
+- Lite packages now ship 27 on-demand skills (was 24).
+- Claude Code variant adds three slash commands: `/memory-map`, `/washing-audit`, `/truth-layer`.
+
+---
+
 ## [3.0.1] - 2026-04-14
 
-### Packaging Verification Follow-Through
+### Corrective Packaging Release
 
-- Confirmed the npm package tarball matches the shipped local-first v3 CLI surface.
-- Preserved the `mode`-first help output with hidden legacy remote/cloud/session/GitHub commands.
-- Hardened runtime version detection so the running package context is preferred before global npm metadata.
+- Publishes the current local-first CLI surface as the actual npm package so installed `archon --help` output matches the verified `3.0.x` product contract.
+- Keeps the `mode`-first, hidden-legacy-remote command surface that was already validated locally before the `3.0.0` publish.
+- Preserves the `3.0.0` local-first redesign while correcting the packaged distribution seen by fresh installs.
 
 ## [3.0.0] - 2026-04-14
 
@@ -25,29 +74,60 @@ All notable changes to ArchonDev are documented here.
 - Hid legacy remote/cloud/session/GitHub commands from normal help so the visible command surface matches the current product contract.
 - Updated release-facing documentation and help text to use local governance mode / BYOK language consistently.
 
-## [2.19.58] - 2026-04-11
+## [2.19.38] - 2026-02-23
 
-### New Lite Features: Expert Review & Features Dashboard
+### Conversational Path-Scope Recovery Hardening
 
-- **Expert Review Spec** — New scenario (`expert review`) generates a consultant-ready technical spec covering gap analysis (what's missing), approach review (what should be done differently), and experience enhancement (what would improve the UX). Output is a self-contained markdown document at `docs/expert-review-[DATE].md` that can be shared with outside reviewers. Includes a reviewer response template for structured feedback.
-- **Features Dashboard** — New scenario (`show dashboard`) generates and maintains a live HTML page (`.archon/dashboard.html`) that tracks which ArchonDev capabilities the user has used, which are available, and which are recommended based on current project context. Updated automatically at session start, after feature first use, and at session end.
-- **New Context Triggers** — Expert Review offered at milestones; Features Dashboard offered when users ask about capabilities.
-- **Session Start Protocol** — Now includes dashboard update step with feature usage count.
-- **Dark Mode Contrast Fix** — Red text across the website now uses high-contrast colors in dark mode for better readability.
+- Added automatic path-scope recovery in chat execution:
+  - re-plan with architecture-allowed path constraints
+  - retry execution automatically in non-terminating chat mode
+- Added second-stage forced-base-path recovery when first scoped retry still drifts out of scope.
+- Improved replacement atom retry selection so auto-recovery reliably executes the newest ready replacement atom.
+- Tightened planning constraints to force explicit in-scope output paths before implementation.
 
-## [2.19.57] - 2026-03-19
+## [2.19.37] - 2026-02-23
 
-### G-Stack Intelligence Integration
+### Auto-Recovery Retry Selector Fix
 
-Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — putting the burden of quality on the AI, not the user.
+- Fixed auto-recovery logic to retry with the newest replacement `READY` atom instead of stopping after re-planning.
+- Added robust fallback selection and clearer warning when no retry candidate is available.
 
-- **Risk Scoring** — Numeric 0-100 risk assessment shown before atom execution. Scores protected paths (+20 HARD, +10 SOFT), STABLE components (+5), dependency fan-out, and file complexity. HIGH/CRITICAL risk prompts confirmation based on approval policy.
-- **Fix-First Code Review** — `archon review` now auto-fixes mechanical issues (unused imports, formatting), batches ambiguous decisions, and detects scope drift and doc staleness. Auto-detects review mode (engineering/design/scope) from changeset.
-- **Ship Pipeline** — `archon ship` runs: merge base → tests → fix-first review → risk score → version bump → changelog → commit → push → PR. Say "ship it" in chat to trigger. Supports `--dry-run` and `--skip-review`.
-- **Post-Ship Doc Staleness** — After PR creation, scans for docs referencing changed code that weren't updated. Offers to create a doc-update task.
-- **Headless Browser QA** — `archon qa` runs Playwright-based health checks (console errors, broken resources, layout stability, response time). Diff-aware: maps changed files to affected routes for Astro, Next.js, and Remix.
-- **Session Retrospective** — `archon retro` shows duration, atoms completed/failed, gate pass rate, average risk score, top failure gate, and file hotspots.
-- **Ship Intent Detection** — Chat directives "ship", "ship it", "deploy", "create pr", "go live", "publish", "release" route to the ship pipeline.
+## [2.19.36] - 2026-02-23
+
+### Conversational Continuation + Replan UX
+
+- `continue`/`move forward` now route to continuation execution flow instead of creating junk atoms.
+- Analysis approval (`yes`/`go ahead`) now auto-starts implementation after atom creation.
+- Added chat command to re-scope blocked work (`adjust this atom to allowed paths`) and continue execution.
+- Updated continuation logic to choose most recent `READY` atom.
+
+## [2.19.35] - 2026-02-23
+
+### Scope-Constrained Chat Planning
+
+- Chat planning now injects architecture-allowed path constraints before atom creation to reduce out-of-scope execution proposals.
+- Execute guidance now shows path-scope-specific recovery instructions.
+
+## [2.19.34] - 2026-02-23
+
+### Flexible Conversational Approvals
+
+- Expanded natural-language directive matching for approval/create/execute in interactive chat.
+- Fixed execution directive false positives from planning-language phrases (e.g., "how to implement...").
+
+## [2.19.33] - 2026-02-23
+
+### Execution Intent Precision
+
+- Tightened execute-intent matching and prevented attempts to execute `IN_PROGRESS` atoms as "next task."
+- Added explicit handling for in-progress atoms in continuation flow.
+
+## [2.19.32] - 2026-02-23
+
+### Flexible Confirmation Commands
+
+- Added support for short natural confirmations (`yes`, `create`, `go ahead`) in analysis-first and proposal-approval flows.
+- Improved prompt copy to advertise natural-language confirmations.
 
 ## [2.19.31] - 2026-02-23
 
@@ -55,7 +135,7 @@ Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — pu
 
 - Plan-first analysis requests now return recommendation + implementation plan + sample draft immediately, without requiring an intermediate `approve plan` round-trip.
 - Day-1 content detection was tightened to avoid accidentally pulling day-10/day-11 files into day-1 analysis.
-- Added smoother handoff language: users can continue with `save this`/`create atom` only when they want governed implementation.
+- Added smoother handoff language: users can directly continue by saying `save this`/`create atom` only when they want governed implementation.
 
 ## [2.19.30] - 2026-02-23
 
@@ -73,6 +153,9 @@ Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — pu
 - Execution now treats architecture boundary/path violations as guided pauses instead of hard failure outcomes.
 - Governance violations move atoms to `BLOCKED` with clear corrective guidance, rather than `FAILED` retry semantics.
 - Added explicit violation parsing in execute flow so users see actionable path-level guidance.
+- Expanded atom state transitions to support governance pause transitions:
+  - `IN_PROGRESS -> BLOCKED`
+  - `TESTING -> BLOCKED`
 
 ## [2.19.28] - 2026-02-23
 
@@ -82,16 +165,64 @@ Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — pu
 - Added pending proposal context handling so approval directives apply to the previously proposed request.
 - Unified approval handling across agent loop and follow-up conversation loop for consistent behavior.
 
+## [2.19.25] - 2026-02-23
+
+### Chat-First Stability (Explore Routing + Execute Failure Safety)
+
+- Read-only requests like "read the files in this folder" now route to explore/analyze flow instead of atom execution.
+- Fixed atom state transition handling in execute flow by persisting returned transition state objects.
+- Added non-terminating execute mode for chat-first flow so execution failures do not kill the interactive session.
+- Hardened Apple Terminal safe-mode prompt/input handling with lower-risk readline configuration.
+
+## [2.19.24] - 2026-02-23
+
+### Apple Terminal Input Hardening
+
+- Added additional Apple Terminal safe-mode protections for interactive input handling.
+- Reduced prompt/render complexity in safe mode to lower crash likelihood during dictation-heavy startup interactions.
+
+## [2.19.23] - 2026-02-23
+
+### Model Defaults Refresh
+
+- Updated premium/default model posture:
+  - Gemini API canonical 3.1 model ID now `gemini-3.1-pro-preview` (with backward aliases).
+  - OpenAI defaults updated to `gpt-5.3-codex`.
+  - Anthropic defaults updated to Sonnet/Opus 4.6.
+
+## [2.19.10] - 2026-02-16
+
+### BYOK Startup Usage Visibility
+
+- Added BYOK usage/cost panel to interactive startup so BYOK users get immediate usage transparency.
+- BYOK startup now always renders model usage output, including explicit zero-state display when usage is empty:
+  - `No usage yet ... $0.0000`
+- Added resilient BYOK usage fetch path with zero-value fallback when usage data is temporarily unavailable.
+
 ## [2.19.6] - 2026-02-16
 
 ### Conversational UX + Usage Transparency
 
-- Fixed interactive chat flow so mixed requests (analyze first, then proceed with a task) no longer stall in analysis-only mode.
-- Improved freeform continuity in startup flows to avoid unintended session exits.
-- Added tier-aware usage visibility in `archon usage`:
-  - `CREDITS`: since-last-top-up context, base cost, platform fee, credits deducted, and per-model spend share.
+- Fixed interactive chat flow regression where mixed requests (analyze first, then do X) were treated as analysis-only.
+- Explore flow now preserves actionable follow-up intent and continues directly into planning/interview work.
+- Improved menu/freeform continuity so the session does not drop back to the shell unless the user explicitly quits.
+- Upgraded `archon usage` to show practical model spend details by tier:
+  - `CREDITS`: since-last-top-up aware period labeling, base model cost, platform fee, credits deducted, and model share.
   - `BYOK`: model usage and estimated provider spend for Today, Last 24 Hours, Last 7 Days, Last 30 Days, and Year to Date.
-- Fixed usage/profile resolution in CLI reporting paths and corrected `archon credits history` filtering.
+- Fixed usage identity resolution in CLI paths by deriving auth/profile IDs from the active token when needed.
+- Fixed `archon credits history` to query token usage by profile ID, preventing false empty histories.
+
+## [2.19.5] - 2026-02-15
+
+### CLI Journey UX Optimization
+
+- Made interactive CLI flows conversational-first across startup and preferences, with numbered menus kept as optional shortcuts.
+- Added preflight cost + current balance visibility in Credits mode before planning/execution.
+- Replaced insufficient-funds dead ends with guided in-command recovery (top up now, switch to BYOK + add key, or cancel) plus automatic re-check before continue.
+- Added explicit next-best-action guidance after major plan/execute/credits outcomes.
+- Improved cloud execution tier handling by prompting an upgrade path when invoked from non-Credits tiers.
+- Added journey regression tests for conversational choice routing (`src/cli/journey-choices.test.ts`).
+- Updated internal and website docs to use canonical post-change journey wording (docs + download pages).
 
 ## [2.19.4] - 2026-02-15
 
@@ -103,6 +234,14 @@ Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — pu
 - Enforced two-stage AI review order: spec compliance first, then code quality.
 - Updated Lite package AGENTS/scenario guidance with design gate, root-cause gate, and two-stage review checklist.
 
+## [2.19.2] - 2026-02-09
+
+### BYOK Key Security Messaging
+
+- Added explicit BYOK key security messaging in CLI key entry prompts.
+- Documented BYOK key security in README, docs, website docs, Pricing FAQ, and Privacy Policy.
+- Clarified BYOK keys stay local (never uploaded) and cloud execution is Credits-only.
+
 ## [2.19.3] - 2026-02-09
 
 ### Content Task Planning Recovery
@@ -110,6 +249,32 @@ Runtime features inspired by [gstack](https://github.com/garrytan/gstack) — pu
 - Improved detection for content-only tasks (stories, lessons, outlines, visuals).
 - Automatically falls back to lightweight planning when adversarial planning fails on content tasks.
 - Allows user correction during planning to reclassify content requests without blocking.
+
+## [2.19.1] - 2026-02-09
+
+### CLI Prompt + Governance UX
+
+- Multi-line prompt support for task descriptions (terminator line `.` or Ctrl+D).
+- Added `archon governance sqlite-init` command to initialize local governance DB.
+- Added local governance SQLite docs and clarified local-only storage.
+
+## [2.19.0] - 2026-02-09
+
+### Governance Store + Lite Package Upgrade
+
+- Added `archon governance` CLI commands for status, architecture updates, task updates, handoffs, and legacy migration.
+- Added legacy migration helper to move `ARCHITECTURE.md` and `.archon/current-tasks.md` into the new AGD layout.
+- Added SQLite/FTS governance view for searchable architecture, tasks, handoffs, and decisions.
+- Updated Lite packages/templates to `.archon/active|history|archive` structure with `tasks.json` + `current_context.md` templates.
+- Hardened governance lock handling for stale lock recovery and frontmatter serialization.
+
+## [2.18.8] - 2026-02-08
+
+### CLI Input + Credits UX Fixes
+
+- Accepts multi-line pasted input for the initial prompt without spilling into later questions.
+- Credits tier startup now always shows balance and a zeroed model usage row when no usage exists.
+- Reduced false Go language detection for phrases like "go through".
 
 ## [2.18.3] - 2026-02-08
 

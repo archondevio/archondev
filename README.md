@@ -1,6 +1,8 @@
 # ArchonDev
 
-**AI Development Governance — Stop Babysitting Your AI Agent**
+**Govern AI code with local-first quality gates.**
+
+Development governance for code written by AI coding assistants. Reads your architecture file before any change, runs quality gates on every diff, tracks file dependencies so refactors don't silently break callers. Free, local-first, BYOK. Works as a CLI or as drop-in files for Cursor, Claude Code, Windsurf, VS Code + Copilot, Gemini, and the OpenAI Codex CLI.
 
 ## Two Ways to Use ArchonDev
 
@@ -23,7 +25,7 @@ npm install -g archondev; archon
 - Learning persistence — mistakes are remembered and avoided
 - **Dependency tracking** — prevent regressions with "what-breaks-what" map
 - Bug reporting with root cause analysis
-- AI-powered code review for any codebase
+- Reviews any codebase against the architecture file you supply, with severity-graded findings
 - Multi-provider key support with adversarial features
 - **Risk scoring** — 0-100 risk assessment before every execution
 - **Ship pipeline** — `archon ship`: review → test → version → changelog → PR
@@ -50,27 +52,16 @@ Context-aware intelligence for your existing AI tools: **Cursor, Claude Code, Wi
 
 **Governance Foundation:**
 - .archon/active/architecture.md template with best practices
-- **Quality Level / Posture** — prototype/production/enterprise-grade behavior
+- **Quality Level / Posture** — prototype, production, and enterprise postures each gate behavior differently
 - **DEPENDENCIES.md** — File-level dependency tracking to prevent regressions
 - IDE-specific rule files (.cursorrules, CLAUDE.md, GEMINI.md, etc.)
-- **24 on-demand AI skills** — Design review, debugging, ship readiness, scope review, accessibility, SEO/GEO, color scheme picker, expert review, features dashboard, and more — loaded only when triggered, keeping context lean
+- **27 on-demand AI skills** — Design review, debugging, ship readiness, truth layer, human memory map, AI-washing audit, scope review, accessibility, SEO/GEO, color scheme picker, expert review, features dashboard, and more — loaded only when triggered, keeping context lean
 - **Skills-based architecture** — 80% smaller context footprint (8.6 KB core vs 42 KB monolithic). Skills load on-demand with progressive disclosure
-- **Claude Code: 16 native slash commands** — `/debug`, `/design-review`, `/ship-readiness`, `/code-review`, `/scope-check`, `/expert-review`, `/geo-optimize`, `/seo-check`, `/accessibility`, `/reflect`, `/handoff`, `/plan-tasks`, `/color-scheme`, `/rollback`, `/dashboard`, `/constitution`
+- **Claude Code: 19 native slash commands** — `/debug`, `/design-review`, `/ship-readiness`, `/code-review`, `/scope-check`, `/expert-review`, `/geo-optimize`, `/seo-check`, `/accessibility`, `/reflect`, `/handoff`, `/plan-tasks`, `/color-scheme`, `/rollback`, `/dashboard`, `/constitution`, `/memory-map`, `/washing-audit`, `/truth-layer`
 - **GEO Optimization** — 7-phase protocol for AI search citation: identity phrases, atomic claims, JSON-LD schemas, and audit ([free tools](https://archondev.io/geo))
 - **Task Extraction** — AI confirms all items before starting, nothing gets forgotten
 - **Context Handoff** — Memory management for long sessions
 - Works with any AI coding assistant
-
-### Local Governance SQLite (Dev Only)
-
-Governance data for this repo lives in `.archon/governance.db` and is local-only. It is never synced to Supabase.  
-To initialize or refresh it:
-
-```bash
-pnpm exec tsx scripts/init-governance-db.ts
-```
-
----
 
 ## Commands
 
@@ -80,14 +71,14 @@ pnpm exec tsx scripts/init-governance-db.ts
 | `archon init` | Initialize in your project |
 | `archon mode` | Choose local governance mode or BYOK AI mode |
 | `archon config ai` | Guided BYOK provider-key setup |
-| `archon status` | Show local mode, auth, and project status |
+| `archon status` | Show local mode and any old local legacy-session tokens |
 | `archon plan <description>` | Create a work item with AI planning (extracts and confirms multi-item requests) |
 | `archon execute <atom-id>` | Execute with quality gates |
 | `archon list` | List all work items |
 | `archon show <atom-id>` | Show details |
 | `archon watch` | Live TUI dashboard with status |
 | `archon bug report <title>` | Bug report with root cause analysis |
-| `archon review init` | Initialize AI-powered code review |
+| `archon review init` | Initialize the local code review database |
 | `archon review analyze` | Scan project and populate review tasks |
 | `archon review run` | Run AI review on pending tasks |
 | `archon usage` | Usage by period and model |
@@ -105,8 +96,15 @@ pnpm exec tsx scripts/init-governance-db.ts
 | `archon a11y pre-deploy` | Interactive pre-deployment check |
 | `archon seo check` | Run SEO meta tag audit |
 | `archon seo fix` | Apply recommended SEO fixes |
-| `archon geo identity` | Generate brand identity phrases for AI citation |
-| `archon geo schema` | Generate JSON-LD schemas |
+| `archon geo identity` | Generate 7-word phrase + 50-word description + businessContext/audienceContext artifacts |
+| `archon geo schema` | Generate Organization + Service + WebSite JSON-LD |
+| `archon geo faq` | Generate FAQPage JSON-LD (sentence-budget validated) |
+| `archon geo claims` | Generate atomic claims (≤18 tokens each) for agent citation |
+| `archon geo audit` | Agent Clarity Audit — multi-surface walk (homepage, pricing, docs, comparison, etc.) |
+| `archon geo washing-audit` | AI-Washing Risk Register — find unsupported claims, defensible rewrites |
+| `archon truth-layer init` | Create `.archon/truth-layer.md` — the living claims-and-evidence artifact |
+| `archon truth-layer audit` | Compare truth layer to public surfaces; flag gaps |
+| `archon brand memory-map` | Human Memory Map — pressure-test what humans actually remember |
 | `archon governance status` | Show governance status (AGD) |
 | `archon governance architecture update` | Update architecture with change reason |
 | `archon governance task update` | Update governance tasks |
@@ -129,8 +127,8 @@ pnpm exec tsx scripts/init-governance-db.ts
 
 **Notes:**  
 - Content-only requests (stories, outlines, lessons, visuals) use lightweight planning to avoid blocking.
-- BYOK shows per-model usage and cost by today/week/month/year in `archon preferences` → “View usage details.”  
-- You can paste multi-line requests into interactive prompts; Archon captures them as a single response.
+- BYOK shows per‑model usage and cost by today/week/month/year in `archon preferences` → “View usage details.”  
+- You can paste multi‑line requests into interactive prompts; Archon captures them as a single response.
 - Proposal approvals like `approve plan` now bind to the pending proposal context in chat mode.
 - Governance boundary/path checks in execute now steer with actionable guidance and set atoms to `BLOCKED` rather than hard failing.
 - Analysis-first requests now return recommendations first and accept natural confirmations (`yes`, `go ahead`, `create`) to create governed tasks.
@@ -173,7 +171,7 @@ No Archon token markup. You pay your LLM provider directly at their published ra
 ```bash
 $ archon
 
-ArchonDev - AI-Powered Development Governance
+ArchonDev — Development Governance for AI-Assisted Code
 ────────────────────────────────────────────────
 
 AI mode: Local governance only
@@ -195,37 +193,23 @@ Type these anytime during interactive prompts:
 | Command | Description |
 |---------|-------------|
 | `config ai` | Open BYOK key setup |
-| `status` | Show local mode and optional auth info |
+| `status` | Show local mode and old legacy-session token status |
 | `keys` | List configured API keys |
 | `help` | Show available commands |
 | `quit` | Exit ArchonDev |
 
-## Cloud Execution (Legacy)
+## Retired Remote Paths
 
-These commands are preserved only for backward compatibility and are hidden from the normal CLI surface.
-They are not part of the current local-first product path.
+Platform login, GitHub OAuth, cloud execution, cloud sessions, Supabase usage tracking, Stripe credits, and remote model-registry sync are retired for the current product. Hidden compatibility commands now print a retirement message instead of calling Supabase or Fly.
+
+Use local execution with BYOK keys:
 
 ```bash
-# 1. Authenticate
-archon login
-
-# 2. Connect GitHub (one-time setup)
-archon github connect       # Opens browser for authorization
-archon github status        # Verify connection
-
-# 3. Plan locally, execute in cloud
+archon config ai
 archon plan "add user settings page"
-archon execute ATOM-001 --cloud
-
-# 3b. Queue multiple atoms in parallel (legacy command; disabled in free/BYOK mode)
-archon parallel cloud ATOM-001 ATOM-002
-
-# 4. Check progress
-archon cloud status         # List all cloud executions
-archon cloud logs <id>      # View execution logs
+archon execute ATOM-001
+archon usage
 ```
-
-Cloud execution is currently disabled in the free/BYOK model. Use local execution with BYOK keys.
 
 ## Working with Existing Projects
 
@@ -255,3 +239,5 @@ The CLI detects existing projects and suggests this workflow automatically.
 - [archondev.io/geo](https://archondev.io/geo) — Free GEO optimization tools (Claude skill + prompt generator)
 - [archondev.io/color-schemes](https://archondev.io/color-schemes) — Color Scheme Picker (26 curated schemes)
 - [AI Coding Problems Research](docs/ai-coding-problems-research.md) — Market research on AI coding assistant issues
+
+*ArchonDev by Jumping Ahead Corp.*
