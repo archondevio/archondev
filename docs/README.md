@@ -6,7 +6,8 @@ This folder contains the public documentation snapshot for the current ArchonDev
 
 ## Current Status (2026-07-01)
 
-- Stable `archondev@3.2.0` is the current release target and reflects the optional MarkItDown MCP document-ingestion skill plus the verified local-first CLI surface.
+- Source/package version is `3.2.0` for the optional MarkItDown MCP Lite package release.
+- Current npm latest is `archondev@3.1.0` as of 2026-07-01; the v3.2.0 MarkItDown work was shipped as Lite packages, website/downloads, GitHub release assets, and source docs, not as an npm publish.
 - **Document Ingestion (2026-07-01):** Lite packages now ship a MarkItDown MCP skill for opt-in conversion of PDFs, Office files, web pages, and other sources into Markdown for AI review, RAG prep, and local semantic indexing. The skill keeps setup optional and includes local-trust security guidance plus a CLI fallback for large documents.
 - Product direction is now local-first CLI + BYOK AI with no required platform login on the primary path.
 - **Two-Audience Marketing Framework (2026-05-24):** CLI and Lite packages now support truth-layer governance, agent clarity audits, atomic claims, AI-washing risk registers, and human memory maps. Lite packages now ship 28 on-demand skill files. Claude Code variant now includes 20 native slash commands (`.claude/commands/`), including `/memory-map`, `/washing-audit`, `/truth-layer`, and `/markitdown`.
@@ -210,7 +211,7 @@ This folder contains the public documentation snapshot for the current ArchonDev
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v3.2.0)
+## CLI Commands (3.x source; npm latest 3.1.0)
 
 | Command | Description |
 |---------|-------------|
