@@ -4,11 +4,12 @@
 
 This folder contains the public documentation snapshot for the current ArchonDev release.
 
-## Current Status (2026-05-24)
+## Current Status (2026-07-01)
 
-- Stable `archondev@3.1.0` is the current release target and reflects the two-audience marketing framework plus the verified local-first CLI surface.
+- Stable `archondev@3.2.0` is the current release target and reflects the optional MarkItDown MCP document-ingestion skill plus the verified local-first CLI surface.
+- **Document Ingestion (2026-07-01):** Lite packages now ship a MarkItDown MCP skill for opt-in conversion of PDFs, Office files, web pages, and other sources into Markdown for AI review, RAG prep, and local semantic indexing. The skill keeps setup optional and includes local-trust security guidance plus a CLI fallback for large documents.
 - Product direction is now local-first CLI + BYOK AI with no required platform login on the primary path.
-- **Two-Audience Marketing Framework (2026-05-24):** CLI and Lite packages now support truth-layer governance, agent clarity audits, atomic claims, AI-washing risk registers, and human memory maps. Lite packages now ship 27 on-demand skill files. Claude Code variant now includes 19 native slash commands (`.claude/commands/`), adding `/memory-map`, `/washing-audit`, and `/truth-layer`.
+- **Two-Audience Marketing Framework (2026-05-24):** CLI and Lite packages now support truth-layer governance, agent clarity audits, atomic claims, AI-washing risk registers, and human memory maps. Lite packages now ship 28 on-demand skill files. Claude Code variant now includes 20 native slash commands (`.claude/commands/`), including `/memory-map`, `/washing-audit`, `/truth-layer`, and `/markitdown`.
 - **Skills-Based Architecture (2026-04-14):** Lite packages refactored from monolithic 42 KB AGENTS.md to slim 8.6 KB governance core + on-demand skill files with YAML frontmatter. **80% reduction in always-on context.** Skills load only when their trigger condition matches (progressive disclosure).
 - **v3.0.1: Local-First CLI vNext** — Runtime features inspired by [gstack](https://github.com/garrytan/gstack) now ship inside a fully local-first CLI contract:
   - **Risk Scoring** — 0-100 risk assessment before atom execution. Scores protected paths, stable components, dependency fan-out. HIGH/CRITICAL triggers confirmation based on approval policy.
@@ -71,7 +72,7 @@ This folder contains the public documentation snapshot for the current ArchonDev
 | **Architectural Governance** | .archon/active/architecture.md | Define components, boundaries, invariants |
 | **Dependency Tracking** | DEPENDENCIES.md | Track file-level dependencies, prevent regressions |
 | **Learning Persistence** | progress.txt | Append-only log of patterns and insights |
-| **AI Instructions** | AGENTS.md (8.6 KB core) | Governance rules + skills registry (27 on-demand skills) |
+| **AI Instructions** | AGENTS.md (8.6 KB core) | Governance rules + skills registry (28 on-demand skills) |
 | **Context-Aware Triggers** | AGENTS.md skills registry | Proactive detection of user context → loads relevant skill on-demand |
 | **Design Governance** | DESIGN.md + archondev-skills/design-review.md | Design system source of truth, visual audit, AI slop detection (A-F) |
 | **Fix-First Code Review** | archondev-skills/code-review.md | Auto-fix mechanical issues, ask about ambiguous ones |
@@ -91,6 +92,7 @@ This folder contains the public documentation snapshot for the current ArchonDev
 | **Truth Layer** | archondev-skills/truth-layer.md + src/cli/truth-layer.ts | Living claims-and-evidence artifact used by content-touching commands |
 | **AI-Washing Audit** | archondev-skills/ai-washing-audit.md + src/cli/geo.ts | Risk register for unsupported AI claims and defensible rewrites |
 | **Human Memory Map** | archondev-skills/human-memory-map.md + src/cli/brand.ts | Six-surface diagnostic for what humans remember versus intended positioning |
+| **MarkItDown MCP Document Ingestion** | archondev-skills/markitdown-mcp.md | Optional local MCP workflow for converting PDFs, Office files, URLs, and other sources into Markdown for AI review and indexing |
 | **GEO Claude Skill** | website/public/downloads/geo-optimization-skill/SKILL.md | Downloadable Claude Code skill for automated GEO optimization workflow |
 | **GEO Prompt Generator** | website/src/pages/geo.astro (client-side JS) | URL input → comprehensive GEO prompt for any AI assistant |
 | **Task Extraction** | .archon/active/tasks.json | Track multi-item requests, prevent lost requirements |
@@ -104,7 +106,14 @@ This folder contains the public documentation snapshot for the current ArchonDev
 
 ## Key Features by Version
 
-### v3.1.0 (Current)
+### v3.2.0 (Current)
+
+- **MarkItDown MCP Document Ingestion** — Lite packages include `archondev-skills/markitdown-mcp.md`, an optional local skill for converting PDFs, Office files, URLs, and other documents into Markdown.
+- **Security-first setup guidance** — The skill documents STDIO, localhost HTTP, and Docker sandbox options, plus warnings about file/network access permissions.
+- **Large document fallback** — The skill recommends the plain MarkItDown CLI `-o` output path when MCP responses are too large for assistant context.
+- **Lite packages** — all seven variants ship 28 skills; Claude Code ships 20 native slash commands, including `/markitdown`.
+
+### v3.1.0
 
 - **Truth Layer** — `archon truth-layer init/audit` creates and audits `.archon/truth-layer.md` for claims, evidence, customer language, proof, constraints, pricing logic, objections, and category beliefs.
 - **Agent Clarity + AI-Washing Audits** — `archon geo audit`, `archon geo claims`, and `archon geo washing-audit` now produce multi-surface, evidence-aware artifacts.
@@ -201,7 +210,7 @@ This folder contains the public documentation snapshot for the current ArchonDev
 - **19% slower** — Developers using AI were slower but *believed* they were 20% faster
 - **4,600+** ADA web accessibility lawsuits filed in US (2023)
 
-## CLI Commands (v3.1.0)
+## CLI Commands (v3.2.0)
 
 | Command | Description |
 |---------|-------------|

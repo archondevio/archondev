@@ -4,6 +4,24 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [3.2.0] - 2026-07-01
+
+### Optional MarkItDown MCP Document Ingestion
+
+- Added `archondev-skills/markitdown-mcp.md` to all seven Lite packages for opt-in document-to-Markdown workflows.
+- The new skill supports MCP-aware tools that can call Microsoft's local `markitdown-mcp` server, including conversion of PDFs, Office files, URLs, and other sources into Markdown for AI review, RAG prep, and local semantic indexing.
+- Documented STDIO, localhost HTTP, and Docker sandbox setup paths with explicit warnings to keep the MCP server local/trusted.
+- Added the large-document fallback using `markitdown path-to-file.pdf -o docs/ingested/path-to-file.md` when MCP tool responses would be too large for assistant context.
+- Added the Claude Code `/markitdown` command router.
+- Restored missing Claude Code command routers for `/memory-map`, `/washing-audit`, and `/truth-layer` so the package now matches the documented command count.
+
+#### Skill count
+
+- Lite packages now ship 28 on-demand skills (was 27).
+- Claude Code variant now ships 20 native slash commands.
+
+---
+
 ## [3.1.0] - 2026-05-24
 
 ### Two-Audience Marketing Framework — Memory for Humans, Clarity for Agents
