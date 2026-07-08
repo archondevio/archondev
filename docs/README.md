@@ -2,15 +2,16 @@
 
 ## Overview
 
-This folder contains the public documentation snapshot for the current ArchonDev release.
+This folder contains internal documentation for ArchonDev development and marketing.
 
-## Current Status (2026-07-01)
+## Current Status (2026-07-08)
 
-- Source/package version is `3.2.0` for the optional MarkItDown MCP Lite package release.
-- Current npm latest is `archondev@3.1.0` as of 2026-07-01; the v3.2.0 MarkItDown work was shipped as Lite packages, website/downloads, GitHub release assets, and source docs, not as an npm publish.
+- Source/package version is `3.3.0` for the UX/UI Expert Review Lite package release.
+- Current npm latest is `archondev@3.1.0` as of 2026-07-08; the v3.3.0 UX/UI Expert Review work is being shipped as Lite packages, website/downloads, GitHub release assets, and source docs, not as an npm publish.
+- **UX/UI Expert Review (2026-07-08):** Lite packages now ship `ux-ui-review.md` for opt-in expert usability, interaction, information architecture, desktop-app, and Flutter desktop audits with severity-rated fixes and validation recommendations. Claude Code adds `/ux-review`.
 - **Document Ingestion (2026-07-01):** Lite packages now ship a MarkItDown MCP skill for opt-in conversion of PDFs, Office files, web pages, and other sources into Markdown for AI review, RAG prep, and local semantic indexing. The skill keeps setup optional and includes local-trust security guidance plus a CLI fallback for large documents.
 - Product direction is now local-first CLI + BYOK AI with no required platform login on the primary path.
-- **Two-Audience Marketing Framework (2026-05-24):** CLI and Lite packages now support truth-layer governance, agent clarity audits, atomic claims, AI-washing risk registers, and human memory maps. Lite packages now ship 28 on-demand skill files. Claude Code variant now includes 20 native slash commands (`.claude/commands/`), including `/memory-map`, `/washing-audit`, `/truth-layer`, and `/markitdown`.
+- **Two-Audience Marketing Framework (2026-05-24):** CLI and Lite packages now support truth-layer governance, agent clarity audits, atomic claims, AI-washing risk registers, and human memory maps. Lite packages now ship 29 on-demand skill files. Claude Code variant now includes 21 native slash commands (`.claude/commands/`), including `/memory-map`, `/washing-audit`, `/truth-layer`, `/ux-review`, and `/markitdown`.
 - **Skills-Based Architecture (2026-04-14):** Lite packages refactored from monolithic 42 KB AGENTS.md to slim 8.6 KB governance core + on-demand skill files with YAML frontmatter. **80% reduction in always-on context.** Skills load only when their trigger condition matches (progressive disclosure).
 - **v3.0.1: Local-First CLI vNext** — Runtime features inspired by [gstack](https://github.com/garrytan/gstack) now ship inside a fully local-first CLI contract:
   - **Risk Scoring** — 0-100 risk assessment before atom execution. Scores protected paths, stable components, dependency fan-out. HIGH/CRITICAL triggers confirmation based on approval policy.
@@ -73,9 +74,10 @@ This folder contains the public documentation snapshot for the current ArchonDev
 | **Architectural Governance** | .archon/active/architecture.md | Define components, boundaries, invariants |
 | **Dependency Tracking** | DEPENDENCIES.md | Track file-level dependencies, prevent regressions |
 | **Learning Persistence** | progress.txt | Append-only log of patterns and insights |
-| **AI Instructions** | AGENTS.md (8.6 KB core) | Governance rules + skills registry (28 on-demand skills) |
+| **AI Instructions** | AGENTS.md (8.6 KB core) | Governance rules + skills registry (29 on-demand skills) |
 | **Context-Aware Triggers** | AGENTS.md skills registry | Proactive detection of user context → loads relevant skill on-demand |
 | **Design Governance** | DESIGN.md + archondev-skills/design-review.md | Design system source of truth, visual audit, AI slop detection (A-F) |
+| **UX/UI Expert Review** | archondev-skills/ux-ui-review.md | Expert usability, interaction, information architecture, desktop-app, and Flutter desktop audit |
 | **Fix-First Code Review** | archondev-skills/code-review.md | Auto-fix mechanical issues, ask about ambiguous ones |
 | **Self-Regulation** | AGENTS.md core + archondev-skills/self-regulation.md | Hard limits always-on; full blast radius protocol loads on-demand |
 | **Systematic Debugging** | archondev-skills/systematic-debugging.md | Root cause first, hypothesis testing, regression prevention |
@@ -107,7 +109,14 @@ This folder contains the public documentation snapshot for the current ArchonDev
 
 ## Key Features by Version
 
-### v3.2.0 (Current)
+### v3.3.0 (Current)
+
+- **UX/UI Expert Review** — Lite packages include `archondev-skills/ux-ui-review.md`, an opt-in skill for deeper usability, interaction, information architecture, desktop-app, and Flutter desktop audits.
+- **Severity-rated fixes** — The skill produces prioritized findings with concrete fixes, validation guidance, and source anchors for Nielsen Norman Group heuristics, WCAG 2.2, Apple HIG, Microsoft Windows design guidance, and GNOME HIG.
+- **Claude Code command** — Claude Code adds `/ux-review`.
+- **Lite packages** — all seven variants ship 29 skills; Claude Code ships 21 native slash commands.
+
+### v3.2.0
 
 - **MarkItDown MCP Document Ingestion** — Lite packages include `archondev-skills/markitdown-mcp.md`, an optional local skill for converting PDFs, Office files, URLs, and other documents into Markdown.
 - **Security-first setup guidance** — The skill documents STDIO, localhost HTTP, and Docker sandbox options, plus warnings about file/network access permissions.

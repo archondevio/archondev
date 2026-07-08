@@ -4,6 +4,21 @@ All notable changes to ArchonDev are documented here.
 
 ---
 
+## [3.3.0] - 2026-07-08
+
+### UX/UI Expert Review Lite Skill
+
+- Added `archondev-skills/ux-ui-review.md` to all seven Lite packages for opt-in expert usability, interaction, information architecture, desktop-app, and Flutter desktop audits.
+- The new skill produces severity-rated findings with concrete fixes, validation recommendations, and source anchors for Nielsen Norman Group heuristics, WCAG 2.2, Apple HIG, Microsoft Windows design guidance, and GNOME HIG.
+- Added the Claude Code `/ux-review` command router.
+
+#### Skill count
+
+- Lite packages now ship 29 on-demand skills (was 28).
+- Claude Code variant now ships 21 native slash commands.
+
+---
+
 ## [3.2.0] - 2026-07-01
 
 ### Optional MarkItDown MCP Document Ingestion

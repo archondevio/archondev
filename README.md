@@ -55,9 +55,9 @@ Context-aware intelligence for your existing AI tools: **Cursor, Claude Code, Wi
 - **Quality Level / Posture** — prototype, production, and enterprise postures each gate behavior differently
 - **DEPENDENCIES.md** — File-level dependency tracking to prevent regressions
 - IDE-specific rule files (.cursorrules, CLAUDE.md, GEMINI.md, etc.)
-- **28 on-demand AI skills** — Design review, debugging, ship readiness, truth layer, human memory map, AI-washing audit, MarkItDown MCP document ingestion, scope review, accessibility, SEO/GEO, color scheme picker, expert review, features dashboard, and more — loaded only when triggered, keeping context lean
+- **29 on-demand AI skills** — Design review, UX/UI expert review, debugging, ship readiness, truth layer, human memory map, AI-washing audit, MarkItDown MCP document ingestion, scope review, accessibility, SEO/GEO, color scheme picker, expert review, features dashboard, and more — loaded only when triggered, keeping context lean
 - **Skills-based architecture** — 80% smaller context footprint (8.6 KB core vs 42 KB monolithic). Skills load on-demand with progressive disclosure
-- **Claude Code: 20 native slash commands** — `/debug`, `/design-review`, `/ship-readiness`, `/code-review`, `/scope-check`, `/expert-review`, `/geo-optimize`, `/seo-check`, `/accessibility`, `/reflect`, `/handoff`, `/plan-tasks`, `/color-scheme`, `/rollback`, `/dashboard`, `/constitution`, `/memory-map`, `/washing-audit`, `/truth-layer`, `/markitdown`
+- **Claude Code: 21 native slash commands** — `/debug`, `/design-review`, `/ux-review`, `/ship-readiness`, `/code-review`, `/scope-check`, `/expert-review`, `/geo-optimize`, `/seo-check`, `/accessibility`, `/reflect`, `/handoff`, `/plan-tasks`, `/color-scheme`, `/rollback`, `/dashboard`, `/constitution`, `/memory-map`, `/washing-audit`, `/truth-layer`, `/markitdown`
 - **GEO Optimization** — 7-phase protocol for AI search citation: identity phrases, atomic claims, JSON-LD schemas, and audit ([free tools](https://archondev.io/geo))
 - **Task Extraction** — AI confirms all items before starting, nothing gets forgotten
 - **Context Handoff** — Memory management for long sessions
